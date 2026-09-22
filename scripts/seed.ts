@@ -15,7 +15,7 @@ import { seedDemoData, verifyFixtureFiles } from "../fixtures/seed";
 const here = path.dirname(fileURLToPath(import.meta.url));
 const fixturesRoot = path.resolve(here, "../fixtures");
 
-const databaseUrl = process.env.DATABASE_URL;
+const databaseUrl = process.env.DIRECT_DATABASE_URL || process.env.DATABASE_URL;
 if (!databaseUrl) {
   console.error("DATABASE_URL is not set. See .env.example.");
   process.exit(1);

@@ -41,3 +41,5 @@ npm-debug.log*
 # Aerchain's take-home brief is marked confidential on every page.
 # Excluded from the repository; it is not ours to publish.
 Aerchain-Product-Assignment*.pdf
+.vercel
+.env*.local

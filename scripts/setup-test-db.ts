@@ -11,7 +11,7 @@ import postgres from "postgres";
 const here = path.dirname(fileURLToPath(import.meta.url));
 const migrationsDir = path.resolve(here, "../supabase/migrations");
 
-const base = process.env.DATABASE_URL;
+const base = process.env.DIRECT_DATABASE_URL || process.env.DATABASE_URL;
 if (!base) {
   console.error("DATABASE_URL is not set.");
   process.exit(1);

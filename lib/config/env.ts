@@ -43,9 +43,21 @@ const EnvSchema = z.object({
   ANTHROPIC_API_KEY: blankAsAbsent(z.string().optional()),
   DEMO_MODE_ENABLED: blankAsAbsent(z.string().optional()).transform((v) => v === "true"),
 
-  // Direct Postgres connection. Supabase supplies one; a local container works
-  // identically. This is what migrations, seeding and all reads/writes use.
+  /**
+   * Pooled Postgres connection, used at runtime.
+   *
+   * A serverless deployment must go through the pooler: a direct connection per
+   * lambda exhausts Postgres under any real concurrency.
+   */
   DATABASE_URL: blankAsAbsent(z.string().optional()),
+
+  /**
+   * Session-mode connection, used by migrations and seeding.
+   *
+   * Transaction-mode pgbouncer cannot hold the advisory locks and session state
+   * that DDL needs. Falls back to DATABASE_URL where no pooler is involved.
+   */
+  DIRECT_DATABASE_URL: blankAsAbsent(z.string().optional()),
 
   SUPABASE_URL: blankAsAbsent(z.string().url().optional()),
   SUPABASE_SERVICE_ROLE_KEY: blankAsAbsent(z.string().optional()),
@@ -60,8 +72,38 @@ const EnvSchema = z.object({
 
 export type Env = z.infer<typeof EnvSchema>;
 
+/**
+ * Vercel's Supabase integration prefixes everything it provisions, so
+ * `airfq_POSTGRES_URL` arrives where `DATABASE_URL` is expected. Mapping the
+ * integration's own names means a deployment works without anyone renaming
+ * variables by hand — and a hand-set value still wins.
+ */
+function withIntegrationFallbacks(source: NodeJS.ProcessEnv): Record<string, unknown> {
+  const merged: Record<string, unknown> = { ...source };
+  const blank = (value: unknown) => value === undefined || value === "";
+
+  const integrationPrefix = Object.keys(source)
+    .map((key) => /^(.+_)POSTGRES_URL$/.exec(key)?.[1])
+    .find((prefix): prefix is string => Boolean(prefix));
+
+  if (!integrationPrefix) return merged;
+
+  const pick = (suffix: string) => source[`${integrationPrefix}${suffix}`];
+
+  if (blank(merged.DATABASE_URL)) merged.DATABASE_URL = pick("POSTGRES_URL");
+  if (blank(merged.DIRECT_DATABASE_URL)) {
+    merged.DIRECT_DATABASE_URL = pick("POSTGRES_URL_NON_POOLING");
+  }
+  if (blank(merged.SUPABASE_URL)) merged.SUPABASE_URL = pick("SUPABASE_URL");
+  if (blank(merged.SUPABASE_SERVICE_ROLE_KEY)) {
+    merged.SUPABASE_SERVICE_ROLE_KEY = pick("SUPABASE_SERVICE_ROLE_KEY");
+  }
+
+  return merged;
+}
+
 function loadEnv(): Env {
-  const parsed = EnvSchema.safeParse(process.env);
+  const parsed = EnvSchema.safeParse(withIntegrationFallbacks(process.env));
 
   if (!parsed.success) {
     const detail = parsed.error.issues

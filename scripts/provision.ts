@@ -22,7 +22,8 @@ const root = path.resolve(here, "..");
 const migrationsDir = path.join(root, "supabase/migrations");
 const fixturesDir = path.join(root, "fixtures");
 
-const databaseUrl = process.env.DATABASE_URL;
+// DDL needs session mode; transaction-mode pgbouncer cannot hold its locks.
+const databaseUrl = process.env.DIRECT_DATABASE_URL || process.env.DATABASE_URL;
 const supabaseUrl = process.env.SUPABASE_URL;
 const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const bucket = process.env.SUPABASE_STORAGE_BUCKET ?? "vendor-documents";

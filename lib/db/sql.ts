@@ -36,6 +36,10 @@ export function getSql(): Sql {
   cached = postgres(env.DATABASE_URL, {
     max: 8,
     idle_timeout: 20,
+    // Transaction-mode pgbouncer does not support prepared statements, and
+    // postgres.js uses them by default. Without this every query fails against
+    // a Supabase pooled connection.
+    prepare: false,
     // Numerics must not silently become floats: money is summed downstream.
     types: {
       numeric: {
