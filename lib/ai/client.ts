@@ -11,11 +11,8 @@ import { getSessionKey } from "./key-store";
  * credential is session-scoped. This is the single place the concrete
  * Anthropic implementation is named; everything else depends on AIProvider.
  */
-export function getProviderForSession(
-  sessionId: string | null,
-  operation = "unknown",
-): AIProvider {
-  const apiKey = getSessionKey(sessionId);
+export async function getProviderForSession(operation = "unknown"): Promise<AIProvider> {
+  const apiKey = await getSessionKey();
   if (!apiKey) throw new AICredentialsMissingError(operation);
   return new AnthropicProvider(apiKey, env.ANTHROPIC_MODEL);
 }

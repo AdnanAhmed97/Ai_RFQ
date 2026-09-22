@@ -1,12 +1,10 @@
 import { env, isDatabaseConfigured, isDemoModeAvailable } from "@/lib/config/env";
-import { getSessionId } from "@/lib/session/session";
 import { getConnectionStatus } from "@/lib/ai/key-store";
 import { Badge } from "@/components/ui/badge";
 
 /** Configuration state and the prototype's stated limits. */
 export default async function SettingsPage() {
-  const sessionId = await getSessionId();
-  const status = getConnectionStatus(sessionId);
+  const status = await getConnectionStatus();
 
   const rows: { label: string; value: string; tone?: "verified" | "review" }[] = [
     {
@@ -52,7 +50,7 @@ export default async function SettingsPage() {
       <p className="label rule-b rule-t px-4 py-2">Prototype boundaries</p>
       <ul className="max-w-3xl px-4 py-2.5">
         {[
-          "The provider key is held in server memory for this session only. It is never persisted and never returned to the browser. A restart clears it.",
+          "Your provider key is encrypted into your own session cookie. The server keeps no copy — not in memory, not in the database — and browser JavaScript cannot read it. Rotating SESSION_SECRET invalidates it.",
           "Vendor dispatch is simulated. No mail is sent.",
           "The USD rate is fixed so award arithmetic is reproducible, and is labelled wherever it affects a number.",
         ].map((line) => (

@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getSql, isSqlConfigured } from "@/lib/db/sql";
-import { getSessionId } from "@/lib/session/session";
 import { getProviderForSession } from "@/lib/ai/client";
 import { AICredentialsMissingError } from "@/lib/ai/provider";
 import { buildCommercialTruth } from "@/lib/pricing/truth-builder";
@@ -45,9 +44,8 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
 
   let eligibility: Awaited<ReturnType<typeof reviewEligibility>> = [];
   if (!skipEligibility) {
-    const sessionId = await getSessionId();
     try {
-      const provider = getProviderForSession(sessionId, "eligibility_review");
+      const provider = await getProviderForSession("eligibility_review");
       eligibility = await reviewEligibility({ provider, rfqId });
     } catch (error) {
       if (error instanceof AICredentialsMissingError) {

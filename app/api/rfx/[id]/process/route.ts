@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getSql, isSqlConfigured } from "@/lib/db/sql";
-import { getSessionId } from "@/lib/session/session";
 import { getProviderForSession } from "@/lib/ai/client";
 import { AICredentialsMissingError } from "@/lib/ai/provider";
 import { claim, listJobsForRfq, requeue } from "@/lib/jobs/queue";
@@ -45,10 +44,9 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
     return NextResponse.json({ requeued: failed.length });
   }
 
-  const sessionId = await getSessionId();
   let provider;
   try {
-    provider = getProviderForSession(sessionId, "extraction_job");
+    provider = await getProviderForSession("extraction_job");
   } catch (error) {
     if (error instanceof AICredentialsMissingError) {
       return NextResponse.json(

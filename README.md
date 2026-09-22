@@ -334,8 +334,15 @@ per-document progress rather than one long opaque wait.
 ### API keys
 
 BYOK. The buyer supplies an Anthropic key on `/login`; it is validated with a
-real API call, then held **in server memory for that session only** — never
-persisted, never returned to the browser, never logged. A restart clears it.
+real API call, then **encrypted into their own session cookie** (AES-256-GCM
+under a key derived from `SESSION_SECRET`) and stored nowhere else.
+
+Server memory could not hold it: a serverless deployment runs many instances, so
+the request that accepts the key and the one rendering the next page are
+different processes. The key therefore travels with the request. That keeps
+every promise about it — never persisted in plaintext, never readable by browser
+JavaScript (httpOnly), and rotating `SESSION_SECRET` invalidates every
+outstanding credential.
 
 `DEMO_MODE_ENABLED=true` plus `ANTHROPIC_API_KEY` enables a demo button that
 uses an environment-supplied key through the identical pipeline. No secret is

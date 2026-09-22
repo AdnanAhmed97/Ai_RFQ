@@ -138,8 +138,8 @@ export function ConnectAIForm({
         ) : null}
 
         <p className="text-tertiary border-subtle border-t pt-3 text-2xs">
-          Prototype mode: credentials are session-scoped, held server-side, and are
-          not persisted. The key is never shown again after it is submitted.
+          Your key is encrypted into your own session cookie. The server keeps no
+          copy, browser scripts cannot read it, and it is never shown again.
         </p>
       </section>
 

@@ -125,8 +125,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Connection test failed." }, { status: 500 });
   }
 
-  const sessionId = await ensureSession();
-  setSessionKey(sessionId, apiKey);
+  // Stored encrypted in the buyer's own cookie. The server keeps no copy.
+  await ensureSession();
+  await setSessionKey(apiKey);
 
-  return NextResponse.json(getConnectionStatus(sessionId));
+  return NextResponse.json(await getConnectionStatus());
 }

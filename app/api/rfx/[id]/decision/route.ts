@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getSql, isSqlConfigured } from "@/lib/db/sql";
-import { getSessionId } from "@/lib/session/session";
 import { getProviderForSession } from "@/lib/ai/client";
 import { AICredentialsMissingError } from "@/lib/ai/provider";
 import { DECISION_AGENT_PROMPT } from "@/lib/ai/prompts";
@@ -48,7 +47,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
 
   let provider;
   try {
-    provider = getProviderForSession(await getSessionId(), "decision_copilot");
+    provider = await getProviderForSession("decision_copilot");
   } catch (error) {
     if (error instanceof AICredentialsMissingError) {
       return NextResponse.json({ error: "Connect an AI provider first." }, { status: 401 });

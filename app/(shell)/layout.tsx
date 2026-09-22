@@ -1,13 +1,11 @@
 import { env } from "@/lib/config/env";
-import { getSessionId } from "@/lib/session/session";
 import { getConnectionStatus } from "@/lib/ai/key-store";
 import { Rail } from "@/components/shell/rail";
 import { ContextBar } from "@/components/shell/context-bar";
 
 /** Frame for the surfaces that sit outside a single RFx. */
 export default async function ShellLayout({ children }: { children: React.ReactNode }) {
-  const sessionId = await getSessionId();
-  const connection = getConnectionStatus(sessionId);
+  const connection = await getConnectionStatus();
 
   return (
     <div className="min-h-dvh">

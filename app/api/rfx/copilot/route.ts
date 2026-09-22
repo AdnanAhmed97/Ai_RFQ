@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getSql, isSqlConfigured } from "@/lib/db/sql";
-import { getSessionId } from "@/lib/session/session";
 import { getProviderForSession } from "@/lib/ai/client";
 import { AICredentialsMissingError } from "@/lib/ai/provider";
 import { CopilotTurnSchema, RFxDraftSchema } from "@/lib/ai/schemas";
@@ -38,7 +37,7 @@ export async function POST(request: Request) {
 
   let provider;
   try {
-    provider = getProviderForSession(await getSessionId(), "rfx_copilot");
+    provider = await getProviderForSession("rfx_copilot");
   } catch (error) {
     if (error instanceof AICredentialsMissingError) {
       return NextResponse.json({ error: "Connect an AI provider first." }, { status: 401 });

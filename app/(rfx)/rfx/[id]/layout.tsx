@@ -1,5 +1,4 @@
 import { env } from "@/lib/config/env";
-import { getSessionId } from "@/lib/session/session";
 import { getConnectionStatus } from "@/lib/ai/key-store";
 import { loadRailContext } from "@/lib/extraction/rail";
 import { Rail } from "@/components/shell/rail";
@@ -17,8 +16,7 @@ export default async function RFxLayout({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const [context, sessionId] = await Promise.all([loadRailContext(id), getSessionId()]);
-  const connection = getConnectionStatus(sessionId);
+  const [context, connection] = await Promise.all([loadRailContext(id), getConnectionStatus()]);
 
   return (
     <div className="min-h-dvh">
