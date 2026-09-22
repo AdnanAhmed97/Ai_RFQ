@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { env, isDemoModeAvailable } from "@/lib/config/env";
+import { env, isDemoModeAvailable, isSessionConfigured } from "@/lib/config/env";
 import { ensureSession } from "@/lib/session/session";
 import { getProviderForKey } from "@/lib/ai/client";
 import { setSessionKey, getConnectionStatus } from "@/lib/ai/key-store";
@@ -22,6 +22,19 @@ const BodySchema = z.union([
  * the response — the only thing that leaves here is a boolean.
  */
 export async function POST(request: Request) {
+  // Checked before the model call, not after: validating a key and then failing
+  // to store it wastes the round-trip and surfaces as an opaque 500.
+  if (!isSessionConfigured()) {
+    return NextResponse.json(
+      {
+        error:
+          "This deployment has no SESSION_SECRET, so the credential cannot be held for your " +
+          "session. Set SESSION_SECRET in the environment and redeploy.",
+      },
+      { status: 503 },
+    );
+  }
+
   const parsed = BodySchema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) {
     return NextResponse.json({ error: "Provide an API key." }, { status: 400 });

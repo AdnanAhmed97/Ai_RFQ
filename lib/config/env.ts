@@ -93,14 +93,26 @@ export function parseEnv(input: Record<string, unknown>) {
  * serve traffic, so a missing value there is not yet a problem. Signing a real
  * session with a public constant is.
  */
+export class SessionSecretMissingError extends Error {
+  constructor() {
+    super(
+      "SESSION_SECRET is not set in this environment. Generate one with " +
+        "`node -e \"console.log(require('crypto').randomBytes(32).toString('hex'))\"` " +
+        "and set it, then redeploy.",
+    );
+    this.name = "SessionSecretMissingError";
+  }
+}
+
 export function assertSessionSecret(): void {
   if (env.NODE_ENV === "production" && env.SESSION_SECRET === DEV_SESSION_SECRET) {
-    throw new Error(
-      "SESSION_SECRET is not set. Generate one with " +
-        "`node -e \"console.log(require('crypto').randomBytes(32).toString('hex'))\"` " +
-        "and set it in the deployment environment.",
-    );
+    throw new SessionSecretMissingError();
   }
+}
+
+/** True when a session can be issued. Checked before attempting to. */
+export function isSessionConfigured(): boolean {
+  return env.NODE_ENV !== "production" || env.SESSION_SECRET !== DEV_SESSION_SECRET;
 }
 
 export function isDatabaseConfigured(): boolean {
