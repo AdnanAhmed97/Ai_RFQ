@@ -1,7 +1,7 @@
 import "server-only";
 import { createHmac, randomBytes, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
-import { env } from "@/lib/config/env";
+import { assertSessionSecret, env } from "@/lib/config/env";
 
 /**
  * Prototype session handling (spec §5: "minimal prototype auth").
@@ -17,6 +17,9 @@ export const SESSION_COOKIE = "rfx_session";
 const MAX_AGE_SECONDS = 12 * 60 * 60;
 
 function sign(value: string): string {
+  // Checked at use, not at module load: a build has no secrets and serves no
+  // traffic, but a signed session in production must not use the placeholder.
+  assertSessionSecret();
   return createHmac("sha256", env.SESSION_SECRET).update(value).digest("base64url");
 }
 

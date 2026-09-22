@@ -34,3 +34,35 @@ describe("environment configuration", () => {
     expect(parseEnv({ MAX_UPLOAD_MB: "500" }).success).toBe(false);
   });
 });
+
+describe("platform-supplied blanks", () => {
+  it("treats an empty string as absent, so defaults still apply", () => {
+    // Build platforms hand unset variables through as empty strings, and
+    // bundlers statically replace process.env.X with "". Zod's .default() only
+    // fires on undefined, so without this every default is bypassed and a build
+    // with no configuration fails on variables that have perfectly good ones.
+    const result = parseEnv({
+      NEXT_PUBLIC_APP_URL: "",
+      SESSION_SECRET: "",
+      ANTHROPIC_MODEL: "",
+      FX_USD_INR: "",
+      MAX_UPLOAD_MB: "",
+      DATABASE_URL: "",
+      SUPABASE_URL: "",
+    });
+
+    expect(result.success).toBe(true);
+    if (!result.success) return;
+    expect(result.data.NEXT_PUBLIC_APP_URL).toBe("http://localhost:3000");
+    expect(result.data.ANTHROPIC_MODEL).toBe("claude-sonnet-5");
+    expect(result.data.FX_USD_INR).toBe(84.5);
+    expect(result.data.MAX_UPLOAD_MB).toBe(25);
+    expect(result.data.SESSION_SECRET.length).toBeGreaterThanOrEqual(16);
+  });
+
+  it("still rejects a value that is present but wrong", () => {
+    // Blank means absent; it does not mean "accept anything".
+    expect(parseEnv({ FX_USD_INR: "0" }).success).toBe(false);
+    expect(parseEnv({ SUPABASE_URL: "not-a-url" }).success).toBe(false);
+  });
+});

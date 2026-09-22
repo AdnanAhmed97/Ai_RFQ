@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+/** The placeholder secret. Usable in development; refused when serving traffic. */
+const DEV_SESSION_SECRET = "dev-only-insecure-session-secret";
+
 /**
  * Environment configuration, validated once at module load.
  *
@@ -8,41 +11,51 @@ import { z } from "zod";
  * missing key. Features that need a credential check `isDatabaseConfigured()` /
  * the AI key store at call time.
  */
+
+/**
+ * An unset variable is not always `undefined`.
+ *
+ * Build platforms hand unset variables through as empty strings, and bundlers
+ * statically replace `process.env.X` with `""` when no value exists. Zod's
+ * `.default()` only fires on `undefined`, so without this every default is
+ * bypassed and a build with no configuration fails on variables that have
+ * perfectly good defaults.
+ */
+const blankAsAbsent = <T extends z.ZodTypeAny>(schema: T) =>
+  z.preprocess((value) => (value === "" ? undefined : value), schema);
+
 const EnvSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
 
-  NEXT_PUBLIC_APP_URL: z.string().url().default("http://localhost:3000"),
+  NEXT_PUBLIC_APP_URL: blankAsAbsent(z.string().url().default("http://localhost:3000")),
 
   // Signs the prototype session cookie. A weak default is allowed in dev only;
   // production boot fails below if it has not been replaced.
-  SESSION_SECRET: z.string().min(16).default("dev-only-insecure-session-secret"),
+  SESSION_SECRET: blankAsAbsent(z.string().min(16).default(DEV_SESSION_SECRET)),
 
   // Model ID lives in config so it never goes stale inside the codebase.
   // Sonnet by default: this account does not have access to the Opus tier and
   // an Opus request comes back 400 rather than falling back.
-  ANTHROPIC_MODEL: z.string().min(1).default("claude-sonnet-5"),
+  ANTHROPIC_MODEL: blankAsAbsent(z.string().min(1).default("claude-sonnet-5")),
 
   // Optional demo-mode key. BYOK is the primary path; this is the fallback
   // used only when DEMO_MODE_ENABLED is true and the buyer supplied no key.
-  ANTHROPIC_API_KEY: z.string().optional(),
-  DEMO_MODE_ENABLED: z
-    .string()
-    .optional()
-    .transform((v) => v === "true"),
+  ANTHROPIC_API_KEY: blankAsAbsent(z.string().optional()),
+  DEMO_MODE_ENABLED: blankAsAbsent(z.string().optional()).transform((v) => v === "true"),
 
   // Direct Postgres connection. Supabase supplies one; a local container works
   // identically. This is what migrations, seeding and all reads/writes use.
-  DATABASE_URL: z.string().optional().or(z.literal("")),
+  DATABASE_URL: blankAsAbsent(z.string().optional()),
 
-  SUPABASE_URL: z.string().url().optional().or(z.literal("")),
-  SUPABASE_SERVICE_ROLE_KEY: z.string().optional().or(z.literal("")),
-  SUPABASE_STORAGE_BUCKET: z.string().default("vendor-documents"),
+  SUPABASE_URL: blankAsAbsent(z.string().url().optional()),
+  SUPABASE_SERVICE_ROLE_KEY: blankAsAbsent(z.string().optional()),
+  SUPABASE_STORAGE_BUCKET: blankAsAbsent(z.string().default("vendor-documents")),
 
   // Prototype FX anchor. Fixed so award arithmetic is reproducible across runs;
   // labelled as non-market data everywhere it affects a number (spec §26).
-  FX_USD_INR: z.coerce.number().positive().default(84.5),
+  FX_USD_INR: blankAsAbsent(z.coerce.number().positive().default(84.5)),
 
-  MAX_UPLOAD_MB: z.coerce.number().positive().max(100).default(25),
+  MAX_UPLOAD_MB: blankAsAbsent(z.coerce.number().positive().max(100).default(25)),
 });
 
 export type Env = z.infer<typeof EnvSchema>;
@@ -59,15 +72,10 @@ function loadEnv(): Env {
 
   const env = parsed.data;
 
-  if (
-    env.NODE_ENV === "production" &&
-    env.SESSION_SECRET === "dev-only-insecure-session-secret"
-  ) {
-    throw new Error(
-      "SESSION_SECRET must be set to a real value outside development.",
-    );
-  }
-
+  // Deliberately NOT thrown here. A build runs with NODE_ENV=production and no
+  // secrets configured, and failing at module load turns a missing runtime
+  // variable into a broken build. The check belongs where the secret is used —
+  // see assertSessionSecret(), called when a session is actually signed.
   return env;
 }
 
@@ -76,6 +84,23 @@ export const env = loadEnv();
 /** Exported for tests: validate an arbitrary object without touching process.env. */
 export function parseEnv(input: Record<string, unknown>) {
   return EnvSchema.safeParse(input);
+}
+
+/**
+ * Refuses to sign a session with the placeholder secret outside development.
+ *
+ * Enforced at use rather than at load: a build has no secrets and does not
+ * serve traffic, so a missing value there is not yet a problem. Signing a real
+ * session with a public constant is.
+ */
+export function assertSessionSecret(): void {
+  if (env.NODE_ENV === "production" && env.SESSION_SECRET === DEV_SESSION_SECRET) {
+    throw new Error(
+      "SESSION_SECRET is not set. Generate one with " +
+        "`node -e \"console.log(require('crypto').randomBytes(32).toString('hex'))\"` " +
+        "and set it in the deployment environment.",
+    );
+  }
 }
 
 export function isDatabaseConfigured(): boolean {
