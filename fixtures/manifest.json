@@ -1,0 +1,2159 @@
+{
+  "generatedAt": "2026-03-22T00:00:00.000Z",
+  "documents": [
+    {
+      "relativePath": "vendors/vendor-a/quotation.xlsx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "kind": "XLSX",
+      "evidence": [
+        {
+          "skuCode": "CP-3R-001",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 11,
+          "column": "F",
+          "sourceText": "12.64"
+        },
+        {
+          "skuCode": "CP-3R-001",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 11,
+          "column": "C",
+          "sourceText": "3 Ply RSC Box 305x230x160 mm - Plain"
+        },
+        {
+          "skuCode": "CP-3R-002",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 12,
+          "column": "F",
+          "sourceText": "17.12"
+        },
+        {
+          "skuCode": "CP-3R-002",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 12,
+          "column": "C",
+          "sourceText": "3 Ply RSC Box 355x255x180 mm - Plain"
+        },
+        {
+          "skuCode": "CP-3R-003",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 13,
+          "column": "F",
+          "sourceText": "22.93"
+        },
+        {
+          "skuCode": "CP-3R-003",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 13,
+          "column": "C",
+          "sourceText": "3 Ply RSC Box 400x300x200 mm - Printed"
+        },
+        {
+          "skuCode": "CP-3R-004",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 14,
+          "column": "F",
+          "sourceText": "29.44"
+        },
+        {
+          "skuCode": "CP-3R-004",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 14,
+          "column": "C",
+          "sourceText": "3 Ply RSC Box 450x300x250 mm - Printed"
+        },
+        {
+          "skuCode": "CP-3R-005",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 15,
+          "column": "F",
+          "sourceText": "31.78"
+        },
+        {
+          "skuCode": "CP-3R-005",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 15,
+          "column": "C",
+          "sourceText": "3 Ply RSC Box 480x340x260 mm - Plain"
+        },
+        {
+          "skuCode": "CP-3M-006",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 16,
+          "column": "F",
+          "sourceText": "9.76"
+        },
+        {
+          "skuCode": "CP-3M-006",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 16,
+          "column": "C",
+          "sourceText": "3 Ply Die Cut Mailer 240x180x80 mm"
+        },
+        {
+          "skuCode": "CP-3M-007",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 17,
+          "column": "F",
+          "sourceText": "14.04"
+        },
+        {
+          "skuCode": "CP-3M-007",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 17,
+          "column": "C",
+          "sourceText": "3 Ply Die Cut Mailer 300x220x100 mm"
+        },
+        {
+          "skuCode": "CP-5R-008",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 18,
+          "column": "F",
+          "sourceText": "57.33"
+        },
+        {
+          "skuCode": "CP-5R-008",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 18,
+          "column": "C",
+          "sourceText": "5 Ply RSC Box 600x400x300 mm - Plain"
+        },
+        {
+          "skuCode": "CP-5R-009",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 19,
+          "column": "F",
+          "sourceText": "65.95"
+        },
+        {
+          "skuCode": "CP-5R-009",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 19,
+          "column": "C",
+          "sourceText": "5 Ply RSC Box 600x400x400 mm - Plain"
+        },
+        {
+          "skuCode": "CP-5R-010",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 20,
+          "column": "F",
+          "sourceText": "70.54"
+        },
+        {
+          "skuCode": "CP-5R-010",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 20,
+          "column": "C",
+          "sourceText": "5 Ply RSC Box 650x450x350 mm - Plain"
+        },
+        {
+          "skuCode": "CP-5R-011",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 21,
+          "column": "F",
+          "sourceText": "93.55"
+        },
+        {
+          "skuCode": "CP-5R-011",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 21,
+          "column": "C",
+          "sourceText": "5 Ply RSC Box 750x450x450 mm - Plain"
+        },
+        {
+          "skuCode": "CP-5R-012",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 22,
+          "column": "F",
+          "sourceText": "107.08"
+        },
+        {
+          "skuCode": "CP-5R-012",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 22,
+          "column": "C",
+          "sourceText": "5 Ply RSC Box 800x500x400 mm - Plain"
+        },
+        {
+          "skuCode": "CP-5R-013",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 23,
+          "column": "F",
+          "sourceText": "146.17"
+        },
+        {
+          "skuCode": "CP-5R-013",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 23,
+          "column": "C",
+          "sourceText": "5 Ply RSC Box 900x600x500 mm - Plain"
+        },
+        {
+          "skuCode": "CP-5P-014",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 24,
+          "column": "F",
+          "sourceText": "68.26"
+        },
+        {
+          "skuCode": "CP-5P-014",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 24,
+          "column": "C",
+          "sourceText": "5 Ply RSC Box 600x400x300 mm - Printed"
+        },
+        {
+          "skuCode": "CP-5P-015",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 25,
+          "column": "F",
+          "sourceText": "82.05"
+        },
+        {
+          "skuCode": "CP-5P-015",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 25,
+          "column": "C",
+          "sourceText": "5 Ply RSC Box 650x450x350 mm - Printed"
+        },
+        {
+          "skuCode": "CP-5H-016",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 26,
+          "column": "F",
+          "sourceText": "128.74"
+        },
+        {
+          "skuCode": "CP-5H-016",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 26,
+          "column": "C",
+          "sourceText": "5 Ply HSC Open Top 800x600x500 mm"
+        },
+        {
+          "skuCode": "CP-5T-017",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 27,
+          "column": "F",
+          "sourceText": "119.94"
+        },
+        {
+          "skuCode": "CP-5T-017",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 27,
+          "column": "C",
+          "sourceText": "5 Ply Die Cut Tray 700x500x400 mm"
+        },
+        {
+          "skuCode": "CP-7R-018",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 28,
+          "column": "F",
+          "sourceText": "213.40"
+        },
+        {
+          "skuCode": "CP-7R-018",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 28,
+          "column": "C",
+          "sourceText": "7 Ply RSC Box 800x600x600 mm - Plain"
+        },
+        {
+          "skuCode": "CP-7R-019",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 29,
+          "column": "F",
+          "sourceText": "323.50"
+        },
+        {
+          "skuCode": "CP-7R-019",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 29,
+          "column": "C",
+          "sourceText": "7 Ply RSC Box 1000x700x700 mm - Plain"
+        },
+        {
+          "skuCode": "CP-PAD-020",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 30,
+          "column": "F",
+          "sourceText": "6.24"
+        },
+        {
+          "skuCode": "CP-PAD-020",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 30,
+          "column": "C",
+          "sourceText": "3 Ply Layer Pad 600x400 mm"
+        },
+        {
+          "skuCode": "CP-PAD-021",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 31,
+          "column": "F",
+          "sourceText": "11.48"
+        },
+        {
+          "skuCode": "CP-PAD-021",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 31,
+          "column": "C",
+          "sourceText": "3 Ply Layer Pad 800x600 mm"
+        },
+        {
+          "skuCode": "CP-PAD-022",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 32,
+          "column": "F",
+          "sourceText": "27.78"
+        },
+        {
+          "skuCode": "CP-PAD-022",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 32,
+          "column": "C",
+          "sourceText": "5 Ply Layer Pad 1200x800 mm"
+        },
+        {
+          "skuCode": "CP-DIV-023",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 33,
+          "column": "F",
+          "sourceText": "18.53"
+        },
+        {
+          "skuCode": "CP-DIV-023",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 33,
+          "column": "C",
+          "sourceText": "Partition Set 4 Cell - 600x400x300 mm"
+        },
+        {
+          "skuCode": "CP-DIV-024",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 34,
+          "column": "F",
+          "sourceText": "23.79"
+        },
+        {
+          "skuCode": "CP-DIV-024",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 34,
+          "column": "C",
+          "sourceText": "Partition Set 6 Cell - 600x400x400 mm"
+        },
+        {
+          "skuCode": "CP-SLV-025",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 35,
+          "column": "F",
+          "sourceText": "21.79"
+        },
+        {
+          "skuCode": "CP-SLV-025",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 35,
+          "column": "C",
+          "sourceText": "5 Ply Wrap Around Sleeve 500x350 mm Blank"
+        },
+        {
+          "skuCode": "CP-TRY-026",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 36,
+          "column": "F",
+          "sourceText": "15.67"
+        },
+        {
+          "skuCode": "CP-TRY-026",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 36,
+          "column": "C",
+          "sourceText": "3 Ply Die Cut Tray 400x300x100 mm"
+        },
+        {
+          "skuCode": "CP-TRY-027",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 37,
+          "column": "F",
+          "sourceText": "35.63"
+        },
+        {
+          "skuCode": "CP-TRY-027",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 37,
+          "column": "C",
+          "sourceText": "5 Ply Die Cut Tray 600x400x150 mm"
+        },
+        {
+          "skuCode": "CP-ANG-028",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 38,
+          "column": "F",
+          "sourceText": "7.88"
+        },
+        {
+          "skuCode": "CP-ANG-028",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 38,
+          "column": "C",
+          "sourceText": "Edge Protector Angle Board 50x50x1200 mm"
+        },
+        {
+          "skuCode": "CP-CRN-029",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 39,
+          "column": "F",
+          "sourceText": "4.76"
+        },
+        {
+          "skuCode": "CP-CRN-029",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 39,
+          "column": "C",
+          "sourceText": "5 Ply Corner Pad 200x200 mm"
+        },
+        {
+          "skuCode": "CP-WRP-030",
+          "field": "quoted_price",
+          "sheet": "Quotation",
+          "row": 40,
+          "column": "F",
+          "sourceText": "1201.34"
+        },
+        {
+          "skuCode": "CP-WRP-030",
+          "field": "description",
+          "sheet": "Quotation",
+          "row": 40,
+          "column": "C",
+          "sourceText": "2 Ply Corrugated Roll 1200mm x 75 Mtr"
+        },
+        {
+          "field": "freight",
+          "sheet": "Quotation",
+          "row": 44,
+          "column": "A",
+          "sourceText": "1. All rates are inclusive of freight, delivered to your nominated plant locations (DDP)."
+        },
+        {
+          "field": "payment_terms",
+          "sheet": "Quotation",
+          "row": 45,
+          "column": "A",
+          "sourceText": "2. Payment: 60 days from date of invoice."
+        }
+      ],
+      "vendorKey": "vendor-a"
+    },
+    {
+      "relativePath": "vendors/vendor-a/questionnaire.pdf",
+      "mimeType": "application/pdf",
+      "kind": "PDF",
+      "evidence": [
+        {
+          "field": "questionnaire:Q1",
+          "page": 1,
+          "sourceText": "Yes. ISO 9001:2015, certificate no. IN-QMS-114872, valid to Nov 2027."
+        },
+        {
+          "field": "questionnaire:Q2",
+          "page": 1,
+          "sourceText": "Yes. All shipping containers conform to IS 2771 (Part 1)."
+        },
+        {
+          "field": "questionnaire:Q3",
+          "page": 1,
+          "sourceText": "1,450 MT per month"
+        },
+        {
+          "field": "questionnaire:Q4",
+          "page": 1,
+          "sourceText": "Yes. A bursting-strength certificate per IS 7028 accompanies every despatch."
+        },
+        {
+          "field": "questionnaire:Q5",
+          "page": 1,
+          "sourceText": "Yes. FSC Chain of Custody, licence FSC-C138204."
+        },
+        {
+          "field": "questionnaire:Q6",
+          "page": 1,
+          "sourceText": "3"
+        },
+        {
+          "field": "questionnaire:Q7",
+          "page": 1,
+          "sourceText": "West, North, Central"
+        },
+        {
+          "field": "questionnaire:Q8",
+          "page": 1,
+          "sourceText": "14 days"
+        },
+        {
+          "field": "questionnaire:Q9",
+          "page": 1,
+          "sourceText": "35%"
+        },
+        {
+          "field": "questionnaire:Q10",
+          "page": 1,
+          "sourceText": "Britannia Industries (Pune); Cipla Ltd (Goa)"
+        }
+      ],
+      "vendorKey": "vendor-a"
+    },
+    {
+      "relativePath": "vendors/vendor-a/terms.pdf",
+      "mimeType": "application/pdf",
+      "kind": "PDF",
+      "evidence": [
+        {
+          "field": "freight",
+          "page": 1,
+          "sourceText": "All rates are inclusive of freight, delivered to your nominated plant locations (DDP). Delivery is to the twelve nominated plant locations. No separate freight, handling or unloading charge will be raised against these rates."
+        },
+        {
+          "field": "payment_terms",
+          "page": 1,
+          "sourceText": "60 days from date of invoice. Invoices raised against despatch documentation and a signed delivery challan."
+        }
+      ],
+      "vendorKey": "vendor-a"
+    },
+    {
+      "relativePath": "vendors/vendor-b/quotation.pdf",
+      "mimeType": "application/pdf",
+      "kind": "PDF",
+      "evidence": [
+        {
+          "skuCode": "CP-3R-001",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "11.75"
+        },
+        {
+          "skuCode": "CP-3R-001",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-3R-002",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "15.92"
+        },
+        {
+          "skuCode": "CP-3R-002",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-3R-003",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "21.33"
+        },
+        {
+          "skuCode": "CP-3R-003",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-3R-004",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "27.35"
+        },
+        {
+          "skuCode": "CP-3R-004",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-3R-005",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "29.53"
+        },
+        {
+          "skuCode": "CP-3R-005",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-3M-006",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "467.50"
+        },
+        {
+          "skuCode": "CP-3M-006",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per bundle"
+        },
+        {
+          "skuCode": "CP-3M-007",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "671.50"
+        },
+        {
+          "skuCode": "CP-3M-007",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per bundle"
+        },
+        {
+          "skuCode": "CP-5R-008",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "57.88"
+        },
+        {
+          "skuCode": "CP-5R-008",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-5R-009",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "66.62"
+        },
+        {
+          "skuCode": "CP-5R-009",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-5R-010",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "70.52"
+        },
+        {
+          "skuCode": "CP-5R-010",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-5R-011",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "93.48"
+        },
+        {
+          "skuCode": "CP-5R-011",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-5R-012",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "107.18"
+        },
+        {
+          "skuCode": "CP-5R-012",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-5P-014",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "62.96"
+        },
+        {
+          "skuCode": "CP-5P-014",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-5P-015",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "75.65"
+        },
+        {
+          "skuCode": "CP-5P-015",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-5H-016",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "126.00"
+        },
+        {
+          "skuCode": "CP-5H-016",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-5T-017",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "116.52"
+        },
+        {
+          "skuCode": "CP-5T-017",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per set"
+        },
+        {
+          "skuCode": "CP-7R-018",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "199.16"
+        },
+        {
+          "skuCode": "CP-7R-018",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-PAD-020",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "598.00"
+        },
+        {
+          "skuCode": "CP-PAD-020",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per bundle"
+        },
+        {
+          "skuCode": "CP-PAD-020",
+          "field": "pack_size",
+          "page": 1,
+          "sourceText": "Bundle of 100"
+        },
+        {
+          "skuCode": "CP-PAD-021",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "550.00"
+        },
+        {
+          "skuCode": "CP-PAD-021",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per bundle"
+        },
+        {
+          "skuCode": "CP-PAD-021",
+          "field": "pack_size",
+          "page": 1,
+          "sourceText": "Bundle of 50"
+        },
+        {
+          "skuCode": "CP-PAD-022",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "26.62"
+        },
+        {
+          "skuCode": "CP-PAD-022",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-DIV-023",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "18.94"
+        },
+        {
+          "skuCode": "CP-DIV-023",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per set"
+        },
+        {
+          "skuCode": "CP-DIV-024",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "24.31"
+        },
+        {
+          "skuCode": "CP-DIV-024",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per set"
+        },
+        {
+          "skuCode": "CP-SLV-025",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "20.73"
+        },
+        {
+          "skuCode": "CP-SLV-025",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-TRY-026",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "766.50"
+        },
+        {
+          "skuCode": "CP-TRY-026",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per bundle"
+        },
+        {
+          "skuCode": "CP-TRY-027",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "34.87"
+        },
+        {
+          "skuCode": "CP-TRY-027",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per pc"
+        },
+        {
+          "skuCode": "CP-ANG-028",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "197.25"
+        },
+        {
+          "skuCode": "CP-ANG-028",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per bundle"
+        },
+        {
+          "skuCode": "CP-ANG-028",
+          "field": "pack_size",
+          "page": 1,
+          "sourceText": "Bundle of 25"
+        },
+        {
+          "skuCode": "CP-CRN-029",
+          "field": "quoted_price",
+          "page": 1,
+          "sourceText": "862.00"
+        },
+        {
+          "skuCode": "CP-CRN-029",
+          "field": "quoted_unit",
+          "page": 1,
+          "sourceText": "Per bundle"
+        },
+        {
+          "skuCode": "CP-CRN-029",
+          "field": "pack_size",
+          "page": 1,
+          "sourceText": "Bundle of 200"
+        },
+        {
+          "field": "freight",
+          "page": 1,
+          "sourceText": "1. Prices quoted are Ex-Works Changodar. Freight extra, at actuals."
+        }
+      ],
+      "vendorKey": "vendor-b"
+    },
+    {
+      "relativePath": "vendors/vendor-b/questionnaire.docx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "kind": "DOCX",
+      "evidence": [
+        {
+          "field": "questionnaire:Q1",
+          "sourceText": "Yes — ISO 9001:2015 certified since 2019."
+        },
+        {
+          "field": "questionnaire:Q2",
+          "sourceText": "Yes, IS 2771 Part 1 compliant."
+        },
+        {
+          "field": "questionnaire:Q3",
+          "sourceText": "980 MT/month"
+        },
+        {
+          "field": "questionnaire:Q4",
+          "sourceText": "Yes, BS test certificate issued with each batch as per IS 7028."
+        },
+        {
+          "field": "questionnaire:Q5",
+          "sourceText": "Yes — FSC CoC certificate held, FSC-C119887."
+        },
+        {
+          "field": "questionnaire:Q6",
+          "sourceText": "2"
+        },
+        {
+          "field": "questionnaire:Q7",
+          "sourceText": "West, North"
+        },
+        {
+          "field": "questionnaire:Q8",
+          "sourceText": "18 days ex-works"
+        },
+        {
+          "field": "questionnaire:Q9",
+          "sourceText": "60%"
+        },
+        {
+          "field": "questionnaire:Q10",
+          "sourceText": "Amul (Anand); Torrent Pharmaceuticals (Ahmedabad)"
+        }
+      ],
+      "vendorKey": "vendor-b"
+    },
+    {
+      "relativePath": "vendors/vendor-c/quotation.xlsx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "kind": "XLSX",
+      "evidence": [
+        {
+          "skuCode": "CP-3R-001",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 9,
+          "column": "F",
+          "sourceText": "1112.00"
+        },
+        {
+          "skuCode": "CP-3R-001",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 9,
+          "column": "E",
+          "sourceText": "PER 100 PCS"
+        },
+        {
+          "skuCode": "CP-3R-002",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 10,
+          "column": "F",
+          "sourceText": "1508.00"
+        },
+        {
+          "skuCode": "CP-3R-002",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 10,
+          "column": "E",
+          "sourceText": "PER 100 PCS"
+        },
+        {
+          "skuCode": "CP-3R-003",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 11,
+          "column": "F",
+          "sourceText": "20.18"
+        },
+        {
+          "skuCode": "CP-3R-003",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 11,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-3R-004",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 12,
+          "column": "F",
+          "sourceText": "25.89"
+        },
+        {
+          "skuCode": "CP-3R-004",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 12,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-3R-005",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 13,
+          "column": "F",
+          "sourceText": "27.94"
+        },
+        {
+          "skuCode": "CP-3R-005",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 13,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-3M-006",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 14,
+          "column": "F",
+          "sourceText": "878.00"
+        },
+        {
+          "skuCode": "CP-3M-006",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 14,
+          "column": "E",
+          "sourceText": "PER 100 PCS"
+        },
+        {
+          "skuCode": "CP-3M-007",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 15,
+          "column": "F",
+          "sourceText": "1263.00"
+        },
+        {
+          "skuCode": "CP-3M-007",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 15,
+          "column": "E",
+          "sourceText": "PER 100 PCS"
+        },
+        {
+          "skuCode": "CP-5R-008",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 16,
+          "column": "F",
+          "sourceText": "52.82"
+        },
+        {
+          "skuCode": "CP-5R-008",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 16,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-5R-009",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 17,
+          "column": "F",
+          "sourceText": "60.76"
+        },
+        {
+          "skuCode": "CP-5R-009",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 17,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-5R-010",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 18,
+          "column": "F",
+          "sourceText": "64.71"
+        },
+        {
+          "skuCode": "CP-5R-010",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 18,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-5R-011",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 19,
+          "column": "F",
+          "sourceText": "85.82"
+        },
+        {
+          "skuCode": "CP-5R-011",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 19,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-5R-012",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 20,
+          "column": "F",
+          "sourceText": "98.33"
+        },
+        {
+          "skuCode": "CP-5R-012",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 20,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-5R-013",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 21,
+          "column": "F",
+          "sourceText": "134.23"
+        },
+        {
+          "skuCode": "CP-5R-013",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 21,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-5P-014",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 22,
+          "column": "F",
+          "sourceText": "60.95"
+        },
+        {
+          "skuCode": "CP-5P-014",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 22,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-5P-015",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 23,
+          "column": "F",
+          "sourceText": "73.27"
+        },
+        {
+          "skuCode": "CP-5P-015",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 23,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-5H-016",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 24,
+          "column": "F",
+          "sourceText": "121.30"
+        },
+        {
+          "skuCode": "CP-5H-016",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 24,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-5T-017",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 25,
+          "column": "F",
+          "sourceText": "107.39"
+        },
+        {
+          "skuCode": "CP-5T-017",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 25,
+          "column": "E",
+          "sourceText": "SET"
+        },
+        {
+          "skuCode": "CP-7R-018",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 26,
+          "column": "F",
+          "sourceText": "190.78"
+        },
+        {
+          "skuCode": "CP-7R-018",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 26,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-7R-019",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 27,
+          "column": "F",
+          "sourceText": "289.21"
+        },
+        {
+          "skuCode": "CP-7R-019",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 27,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-PAD-020",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 28,
+          "column": "F",
+          "sourceText": "582.00"
+        },
+        {
+          "skuCode": "CP-PAD-020",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 28,
+          "column": "E",
+          "sourceText": "PER 100 PCS"
+        },
+        {
+          "skuCode": "CP-PAD-021",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 29,
+          "column": "F",
+          "sourceText": "1071.00"
+        },
+        {
+          "skuCode": "CP-PAD-021",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 29,
+          "column": "E",
+          "sourceText": "PER 100 PCS"
+        },
+        {
+          "skuCode": "CP-PAD-022",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 30,
+          "column": "F",
+          "sourceText": "25.94"
+        },
+        {
+          "skuCode": "CP-PAD-022",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 30,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-DIV-023",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 31,
+          "column": "F",
+          "sourceText": "17.35"
+        },
+        {
+          "skuCode": "CP-DIV-023",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 31,
+          "column": "E",
+          "sourceText": "SET"
+        },
+        {
+          "skuCode": "CP-DIV-024",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 32,
+          "column": "F",
+          "sourceText": "22.30"
+        },
+        {
+          "skuCode": "CP-DIV-024",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 32,
+          "column": "E",
+          "sourceText": "SET"
+        },
+        {
+          "skuCode": "CP-SLV-025",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 33,
+          "column": "F",
+          "sourceText": "19.73"
+        },
+        {
+          "skuCode": "CP-SLV-025",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 33,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-TRY-026",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 34,
+          "column": "F",
+          "sourceText": "13.77"
+        },
+        {
+          "skuCode": "CP-TRY-026",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 34,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-TRY-027",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 35,
+          "column": "F",
+          "sourceText": "31.31"
+        },
+        {
+          "skuCode": "CP-TRY-027",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 35,
+          "column": "E",
+          "sourceText": "NOS"
+        },
+        {
+          "skuCode": "CP-ANG-028",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 36,
+          "column": "F",
+          "sourceText": "725.00"
+        },
+        {
+          "skuCode": "CP-ANG-028",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 36,
+          "column": "E",
+          "sourceText": "PER 100 PCS"
+        },
+        {
+          "skuCode": "CP-CRN-029",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 37,
+          "column": "F",
+          "sourceText": "414.00"
+        },
+        {
+          "skuCode": "CP-CRN-029",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 37,
+          "column": "E",
+          "sourceText": "PER 100 PCS"
+        },
+        {
+          "skuCode": "CP-WRP-030",
+          "field": "quoted_price",
+          "sheet": "Sheet1",
+          "row": 38,
+          "column": "F",
+          "sourceText": "1101.04"
+        },
+        {
+          "skuCode": "CP-WRP-030",
+          "field": "quoted_unit",
+          "sheet": "Sheet1",
+          "row": 38,
+          "column": "E",
+          "sourceText": "ROLL"
+        }
+      ],
+      "vendorKey": "vendor-c"
+    },
+    {
+      "relativePath": "vendors/vendor-c/commercial-email.txt",
+      "mimeType": "text/plain",
+      "kind": "TEXT",
+      "evidence": [
+        {
+          "skuCode": "CP-5R-008",
+          "field": "quoted_price_revision",
+          "sourceText": "600x400x300  -  was 52.82, revised to 49.65"
+        },
+        {
+          "skuCode": "CP-5R-009",
+          "field": "quoted_price_revision",
+          "sourceText": "600x400x400  -  was 60.76, revised to 57.11"
+        },
+        {
+          "skuCode": "CP-5R-010",
+          "field": "quoted_price_revision",
+          "sourceText": "650x450x350  -  was 64.71, revised to 60.83"
+        },
+        {
+          "skuCode": "CP-5R-011",
+          "field": "quoted_price_revision",
+          "sourceText": "750x450x450  -  was 85.82, revised to 80.67"
+        },
+        {
+          "field": "freight",
+          "sourceText": "Our rates are ex-works Ambattur. Freight to your plants will be charged extra at Rs. 0.85 per piece, flat, across all locations."
+        },
+        {
+          "field": "questionnaire:Q4",
+          "sourceText": "we do issue these, but per batch only for the larger lots. For the smaller sizes we work on a monthly consolidated test report."
+        }
+      ],
+      "vendorKey": "vendor-c"
+    },
+    {
+      "relativePath": "vendors/vendor-c/questionnaire.pdf",
+      "mimeType": "application/pdf",
+      "kind": "PDF",
+      "evidence": [
+        {
+          "field": "questionnaire:Q1",
+          "page": 1,
+          "sourceText": "Yes. ISO 9001:2015 held."
+        },
+        {
+          "field": "questionnaire:Q2",
+          "page": 1,
+          "sourceText": "Yes — conforms to IS 2771 Part 1."
+        },
+        {
+          "field": "questionnaire:Q3",
+          "page": 1,
+          "sourceText": "2,100 MT per month across both units"
+        },
+        {
+          "field": "questionnaire:Q4",
+          "page": 1,
+          "sourceText": "Batch-wise bursting strength certificates are issued on request for orders above 50,000 pieces. For smaller lots we provide a consolidated monthly test report rather than a per-batch certificate."
+        },
+        {
+          "field": "questionnaire:Q5",
+          "page": 1,
+          "sourceText": "Yes. FSC CoC licence FSC-C151093."
+        },
+        {
+          "field": "questionnaire:Q6",
+          "page": 1,
+          "sourceText": "2"
+        },
+        {
+          "field": "questionnaire:Q7",
+          "page": 1,
+          "sourceText": "South, West"
+        },
+        {
+          "field": "questionnaire:Q8",
+          "page": 1,
+          "sourceText": "12 days"
+        },
+        {
+          "field": "questionnaire:Q9",
+          "page": 1,
+          "sourceText": "72%"
+        },
+        {
+          "field": "questionnaire:Q10",
+          "page": 1,
+          "sourceText": "Hindustan Unilever (Puducherry); Saint-Gobain India (Chennai)"
+        }
+      ],
+      "vendorKey": "vendor-c"
+    },
+    {
+      "relativePath": "vendors/vendor-d/scanned-quotation.pdf",
+      "mimeType": "application/pdf",
+      "kind": "PDF",
+      "evidence": [
+        {
+          "skuCode": "CP-3R-001",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 1,
+          "sourceText": "12.34"
+        },
+        {
+          "skuCode": "CP-3R-002",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 2,
+          "sourceText": "16.71"
+        },
+        {
+          "skuCode": "CP-3R-003",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 3,
+          "sourceText": "22.38"
+        },
+        {
+          "skuCode": "CP-3R-004",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 4,
+          "sourceText": "28.78"
+        },
+        {
+          "skuCode": "CP-3R-005",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 5,
+          "sourceText": "31.08"
+        },
+        {
+          "skuCode": "CP-3M-006",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 6,
+          "sourceText": "9.36"
+        },
+        {
+          "skuCode": "CP-3M-007",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 7,
+          "sourceText": "13.46"
+        },
+        {
+          "skuCode": "CP-5R-008",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 8,
+          "sourceText": "56.62"
+        },
+        {
+          "skuCode": "CP-5R-009",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 9,
+          "sourceText": "65.17"
+        },
+        {
+          "skuCode": "CP-5R-010",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 10,
+          "sourceText": "69.59"
+        },
+        {
+          "skuCode": "CP-5R-011",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 11,
+          "sourceText": "92.24"
+        },
+        {
+          "skuCode": "CP-5R-012",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 12,
+          "sourceText": "105.64"
+        },
+        {
+          "skuCode": "CP-5R-013",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 13,
+          "sourceText": "144.12"
+        },
+        {
+          "skuCode": "CP-5P-014",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 14,
+          "sourceText": "65.68"
+        },
+        {
+          "skuCode": "CP-5P-015",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 15,
+          "sourceText": "78.91"
+        },
+        {
+          "skuCode": "CP-5H-016",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 16,
+          "sourceText": "127.01"
+        },
+        {
+          "skuCode": "CP-5T-017",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 17,
+          "sourceText": "117.82"
+        },
+        {
+          "skuCode": "CP-7R-018",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 18,
+          "sourceText": "205.45"
+        },
+        {
+          "skuCode": "CP-PAD-020",
+          "field": "quoted_price",
+          "page": 2,
+          "row": 19,
+          "sourceText": "6.07"
+        },
+        {
+          "skuCode": "CP-PAD-021",
+          "field": "quoted_price",
+          "page": 2,
+          "row": 20,
+          "sourceText": "11.17"
+        },
+        {
+          "skuCode": "CP-PAD-022",
+          "field": "quoted_price",
+          "page": 2,
+          "row": 21,
+          "sourceText": "27.06"
+        },
+        {
+          "skuCode": "CP-DIV-023",
+          "field": "quoted_price",
+          "page": 2,
+          "row": 22,
+          "sourceText": "18.81"
+        },
+        {
+          "skuCode": "CP-DIV-024",
+          "field": "quoted_price",
+          "page": 2,
+          "row": 23,
+          "sourceText": "24.17"
+        },
+        {
+          "skuCode": "CP-SLV-025",
+          "field": "quoted_price",
+          "page": 2,
+          "row": 24,
+          "sourceText": "20.74"
+        },
+        {
+          "skuCode": "CP-TRY-026",
+          "field": "quoted_price",
+          "page": 2,
+          "row": 25,
+          "sourceText": "15.28"
+        },
+        {
+          "skuCode": "CP-TRY-027",
+          "field": "quoted_price",
+          "page": 2,
+          "row": 26,
+          "sourceText": "34.77"
+        },
+        {
+          "skuCode": "CP-ANG-028",
+          "field": "quoted_price",
+          "page": 2,
+          "row": 27,
+          "sourceText": "7.80"
+        },
+        {
+          "skuCode": "CP-CRN-029",
+          "field": "quoted_price",
+          "page": 2,
+          "row": 28,
+          "sourceText": "4.41"
+        },
+        {
+          "skuCode": "CP-WRP-030",
+          "field": "quoted_price",
+          "page": 2,
+          "row": 29,
+          "sourceText": "1247.68"
+        },
+        {
+          "field": "freight",
+          "page": 2,
+          "sourceText": "Rates inclusive of freight within 200 km of Vapi works. Beyond 200 km freight extra at actuals, approx. Rs. 2.20 per km per vehicle."
+        }
+      ],
+      "vendorKey": "vendor-d"
+    },
+    {
+      "relativePath": "vendors/vendor-d/questionnaire.pdf",
+      "mimeType": "application/pdf",
+      "kind": "PDF",
+      "evidence": [
+        {
+          "field": "questionnaire:Q1",
+          "page": 1,
+          "sourceText": "Yes, ISO 9001:2015 (TUV), valid till 09/2028."
+        },
+        {
+          "field": "questionnaire:Q2",
+          "page": 1,
+          "sourceText": "Yes"
+        },
+        {
+          "field": "questionnaire:Q3",
+          "page": 1,
+          "sourceText": "1,180 MT"
+        },
+        {
+          "field": "questionnaire:Q4",
+          "page": 1,
+          "sourceText": "Yes — IS 7028 bursting strength certificate provided per batch."
+        },
+        {
+          "field": "questionnaire:Q5",
+          "page": 1,
+          "sourceText": "Yes, PEFC Chain of Custody, PEFC/31-32-0091."
+        },
+        {
+          "field": "questionnaire:Q6",
+          "page": 1,
+          "sourceText": "2"
+        },
+        {
+          "field": "questionnaire:Q7",
+          "page": 1,
+          "sourceText": "West, North, Central"
+        },
+        {
+          "field": "questionnaire:Q8",
+          "page": 1,
+          "sourceText": "16 days"
+        },
+        {
+          "field": "questionnaire:Q9",
+          "page": 1,
+          "sourceText": "55%"
+        },
+        {
+          "field": "questionnaire:Q10",
+          "page": 1,
+          "sourceText": "Asian Paints (Khandala); Pidilite Industries (Vapi)"
+        }
+      ],
+      "vendorKey": "vendor-d"
+    },
+    {
+      "relativePath": "vendors/vendor-e/photographed-rate-card.jpg",
+      "mimeType": "image/jpeg",
+      "kind": "IMAGE",
+      "evidence": [
+        {
+          "skuCode": "CP-3R-001",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 1,
+          "sourceText": "12.82"
+        },
+        {
+          "skuCode": "CP-3R-002",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 2,
+          "sourceText": "17.37"
+        },
+        {
+          "skuCode": "CP-3R-003",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 3,
+          "sourceText": "23.25"
+        },
+        {
+          "skuCode": "CP-3R-004",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 4,
+          "sourceText": "29.93"
+        },
+        {
+          "skuCode": "CP-3R-005",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 5,
+          "sourceText": "32.30"
+        },
+        {
+          "skuCode": "CP-3M-006",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 6,
+          "sourceText": "10.33"
+        },
+        {
+          "skuCode": "CP-3M-007",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 7,
+          "sourceText": "14.85"
+        },
+        {
+          "skuCode": "CP-5R-008",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 8,
+          "sourceText": "60.81"
+        },
+        {
+          "skuCode": "CP-5R-009",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 9,
+          "sourceText": "69.96"
+        },
+        {
+          "skuCode": "CP-5R-010",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 10,
+          "sourceText": "71.89"
+        },
+        {
+          "skuCode": "CP-5R-011",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 11,
+          "sourceText": "95.35"
+        },
+        {
+          "skuCode": "CP-5R-012",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 12,
+          "sourceText": "$ 1.29"
+        },
+        {
+          "skuCode": "CP-5R-012",
+          "field": "currency",
+          "page": 1,
+          "row": 12,
+          "sourceText": "$ 1.29"
+        },
+        {
+          "skuCode": "CP-5R-013",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 13,
+          "sourceText": "$ 1.76"
+        },
+        {
+          "skuCode": "CP-5R-013",
+          "field": "currency",
+          "page": 1,
+          "row": 13,
+          "sourceText": "$ 1.76"
+        },
+        {
+          "skuCode": "CP-5P-014",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 14,
+          "sourceText": "67.33"
+        },
+        {
+          "skuCode": "CP-5P-015",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 15,
+          "sourceText": "80.94"
+        },
+        {
+          "skuCode": "CP-5H-016",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 16,
+          "sourceText": "$ 1.68"
+        },
+        {
+          "skuCode": "CP-5H-016",
+          "field": "currency",
+          "page": 1,
+          "row": 16,
+          "sourceText": "$ 1.68"
+        },
+        {
+          "skuCode": "CP-7R-018",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 17,
+          "sourceText": "$ 2.62"
+        },
+        {
+          "skuCode": "CP-7R-018",
+          "field": "currency",
+          "page": 1,
+          "row": 17,
+          "sourceText": "$ 2.62"
+        },
+        {
+          "skuCode": "CP-7R-019",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 18,
+          "sourceText": "335.66"
+        },
+        {
+          "skuCode": "CP-PAD-020",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 19,
+          "sourceText": "6.28"
+        },
+        {
+          "skuCode": "CP-PAD-021",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 20,
+          "sourceText": "11.54"
+        },
+        {
+          "skuCode": "CP-PAD-022",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 21,
+          "sourceText": "27.93"
+        },
+        {
+          "skuCode": "CP-DIV-023",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 22,
+          "sourceText": "19.57"
+        },
+        {
+          "skuCode": "CP-DIV-024",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 23,
+          "sourceText": "25.18"
+        },
+        {
+          "skuCode": "CP-SLV-025",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 24,
+          "sourceText": "22.46"
+        },
+        {
+          "skuCode": "CP-TRY-026",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 25,
+          "sourceText": "15.65"
+        },
+        {
+          "skuCode": "CP-TRY-027",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 26,
+          "sourceText": "35.59"
+        },
+        {
+          "skuCode": "CP-ANG-028",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 27,
+          "sourceText": "7.95"
+        },
+        {
+          "skuCode": "CP-CRN-029",
+          "field": "quoted_price",
+          "page": 1,
+          "row": 28,
+          "sourceText": "4.83"
+        },
+        {
+          "field": "freight",
+          "page": 1,
+          "sourceText": "Freight: As applicable."
+        },
+        {
+          "field": "currency_terms",
+          "page": 1,
+          "sourceText": "Export grades quoted in USD. INR conversion at prevailing rate on date of invoice."
+        },
+        {
+          "skuCode": "CP-5R-008",
+          "field": "quoted_price_handwritten",
+          "page": 1,
+          "sourceText": "56.55"
+        },
+        {
+          "field": "freight_handwritten_query",
+          "page": 1,
+          "sourceText": "to each plant?"
+        }
+      ],
+      "vendorKey": "vendor-e"
+    },
+    {
+      "relativePath": "vendors/vendor-e/questionnaire.pdf",
+      "mimeType": "application/pdf",
+      "kind": "PDF",
+      "evidence": [
+        {
+          "field": "questionnaire:Q1",
+          "page": 1,
+          "sourceText": "Yes. ISO 9001:2015."
+        },
+        {
+          "field": "questionnaire:Q2",
+          "page": 1,
+          "sourceText": "Yes, conforms to IS 2771 Part 1 and to ISTA export norms."
+        },
+        {
+          "field": "questionnaire:Q3",
+          "page": 1,
+          "sourceText": "760 MT per month"
+        },
+        {
+          "field": "questionnaire:Q4",
+          "page": 1,
+          "sourceText": "Yes. Bursting strength certificate accompanies every batch."
+        },
+        {
+          "field": "questionnaire:Q5",
+          "page": 1,
+          "sourceText": "FSC Chain of Custody renewal is currently in process with the certifying body. The previous certificate lapsed in January 2026. Documentation can be shared on request."
+        },
+        {
+          "field": "questionnaire:Q6",
+          "page": 1,
+          "sourceText": "1"
+        },
+        {
+          "field": "questionnaire:Q7",
+          "page": 1,
+          "sourceText": "West, South, East"
+        },
+        {
+          "field": "questionnaire:Q8",
+          "page": 1,
+          "sourceText": "21 days"
+        },
+        {
+          "field": "questionnaire:Q9",
+          "page": 1,
+          "sourceText": "40%"
+        },
+        {
+          "field": "questionnaire:Q10",
+          "page": 1,
+          "sourceText": "Godrej Consumer Products (Mumbai); Marico Ltd (Mumbai)"
+        }
+      ],
+      "vendorKey": "vendor-e"
+    }
+  ]
+}

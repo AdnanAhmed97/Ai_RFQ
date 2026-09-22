@@ -1,0 +1,557 @@
+/**
+ * Demo RFx: Corrugated Packaging — FY27.
+ *
+ * A category buyer at a mid-size Indian consumer-goods manufacturer sourcing
+ * corrugated packaging for 12 plants. The catalogue is drawn from what such a
+ * plant actually consumes: outer shippers in a handful of sizes, e-commerce
+ * mailers, layer pads and partitions, edge protection, and a small tail of
+ * heavy export cartons.
+ *
+ * Quantities and prices are internally consistent — total quoted value lands
+ * near ₹4 Cr, which is the right order of magnitude for this category at this
+ * scale. Nothing here is a round number for its own sake.
+ *
+ * SEED DATA ONLY. Nothing under fixtures/ may be imported by app or lib code.
+ */
+
+export interface FixtureLineItem {
+  position: number;
+  skuCode: string;
+  description: string;
+  specifications: Record<string, string>;
+  quantity: number;
+  unit: string;
+  notes?: string;
+  /** Vendor A's per-unit INR price. Other vendors derive from this. */
+  basePriceInr: number;
+}
+
+export const RFX_TITLE = "Corrugated Packaging — FY27";
+export const RFX_CATEGORY = "Corrugated Packaging";
+export const RFX_GEOGRAPHY = "India — 12 manufacturing plants";
+
+export const RFX_OBJECTIVE =
+  "Consolidate corrugated packaging supply for FY27 across 12 plants under a " +
+  "single rate contract, with delivered pricing and a defensible quality baseline.";
+
+export const RFX_SCOPE =
+  "Annual requirement for corrugated shippers, e-commerce mailers, layer pads, " +
+  "partitions, trays and protective components across 12 plants in India. " +
+  "Rates are sought on a delivered basis to each plant. Award may be split by " +
+  "line. Quoted rates are to hold for the full contract year subject to the " +
+  "agreed quote validity.";
+
+/**
+ * 30 line items. Board is specified the way the Indian trade specifies it:
+ * GSM and BF (bursting factor) for the liner, ply count, and internal
+ * dimensions in millimetres.
+ */
+export const LINE_ITEMS: FixtureLineItem[] = [
+  {
+    position: 1,
+    skuCode: "CP-3R-001",
+    description: "3-ply RSC shipper, 305 x 230 x 160 mm, plain",
+    specifications: {
+      ply: "3",
+      style: "RSC (Regular Slotted Container)",
+      internalDimensionsMm: "305 x 230 x 160",
+      liner: "120 GSM / 16 BF virgin kraft",
+      flute: "B",
+      burstingStrength: "Min 8 kg/cm2",
+      printing: "Plain, unprinted",
+    },
+    quantity: 120000,
+    unit: "piece",
+    basePriceInr: 12.4,
+  },
+  {
+    position: 2,
+    skuCode: "CP-3R-002",
+    description: "3-ply RSC shipper, 355 x 255 x 180 mm, plain",
+    specifications: {
+      ply: "3",
+      style: "RSC",
+      internalDimensionsMm: "355 x 255 x 180",
+      liner: "120 GSM / 16 BF virgin kraft",
+      flute: "B",
+      burstingStrength: "Min 8 kg/cm2",
+      printing: "Plain, unprinted",
+    },
+    quantity: 96000,
+    unit: "piece",
+    basePriceInr: 16.8,
+  },
+  {
+    position: 3,
+    skuCode: "CP-3R-003",
+    description: "3-ply RSC shipper, 400 x 300 x 200 mm, 1-colour flexo",
+    specifications: {
+      ply: "3",
+      style: "RSC",
+      internalDimensionsMm: "400 x 300 x 200",
+      liner: "140 GSM / 18 BF kraft",
+      flute: "B",
+      burstingStrength: "Min 10 kg/cm2",
+      printing: "1-colour flexo, single face",
+    },
+    quantity: 72000,
+    unit: "piece",
+    basePriceInr: 22.5,
+  },
+  {
+    position: 4,
+    skuCode: "CP-3R-004",
+    description: "3-ply RSC shipper, 450 x 300 x 250 mm, 2-colour flexo",
+    specifications: {
+      ply: "3",
+      style: "RSC",
+      internalDimensionsMm: "450 x 300 x 250",
+      liner: "140 GSM / 18 BF kraft",
+      flute: "B",
+      burstingStrength: "Min 10 kg/cm2",
+      printing: "2-colour flexo",
+    },
+    quantity: 54000,
+    unit: "piece",
+    basePriceInr: 28.9,
+  },
+  {
+    position: 5,
+    skuCode: "CP-3R-005",
+    description: "3-ply RSC shipper, 480 x 340 x 260 mm, plain",
+    specifications: {
+      ply: "3",
+      style: "RSC",
+      internalDimensionsMm: "480 x 340 x 260",
+      liner: "150 GSM / 18 BF kraft",
+      flute: "C",
+      burstingStrength: "Min 11 kg/cm2",
+      printing: "Plain, unprinted",
+    },
+    quantity: 42000,
+    unit: "piece",
+    basePriceInr: 31.2,
+  },
+  {
+    position: 6,
+    skuCode: "CP-3M-006",
+    description: "3-ply die-cut e-commerce mailer, 240 x 180 x 80 mm",
+    specifications: {
+      ply: "3",
+      style: "Die-cut mailer with tuck-in flap and tear strip",
+      internalDimensionsMm: "240 x 180 x 80",
+      liner: "120 GSM / 16 BF kraft",
+      flute: "E",
+      burstingStrength: "Min 7 kg/cm2",
+      printing: "Plain, unprinted",
+    },
+    quantity: 180000,
+    unit: "piece",
+    basePriceInr: 9.6,
+  },
+  {
+    position: 7,
+    skuCode: "CP-3M-007",
+    description: "3-ply die-cut e-commerce mailer, 300 x 220 x 100 mm",
+    specifications: {
+      ply: "3",
+      style: "Die-cut mailer with tuck-in flap and tear strip",
+      internalDimensionsMm: "300 x 220 x 100",
+      liner: "120 GSM / 16 BF kraft",
+      flute: "E",
+      burstingStrength: "Min 7 kg/cm2",
+      printing: "Plain, unprinted",
+    },
+    quantity: 132000,
+    unit: "piece",
+    basePriceInr: 13.8,
+  },
+  {
+    position: 8,
+    skuCode: "CP-5R-008",
+    description: "5-ply RSC shipper, 600 x 400 x 300 mm",
+    specifications: {
+      ply: "5",
+      style: "RSC",
+      internalDimensionsMm: "600 x 400 x 300",
+      liner: "150 GSM / 20 BF kraft",
+      flute: "BC double wall",
+      burstingStrength: "Min 14 kg/cm2",
+      printing: "Plain, unprinted",
+    },
+    quantity: 36000,
+    unit: "piece",
+    basePriceInr: 58.4,
+  },
+  {
+    position: 9,
+    skuCode: "CP-5R-009",
+    description: "5-ply RSC shipper, 600 x 400 x 400 mm",
+    specifications: {
+      ply: "5",
+      style: "RSC",
+      internalDimensionsMm: "600 x 400 x 400",
+      liner: "150 GSM / 20 BF kraft",
+      flute: "BC double wall",
+      burstingStrength: "Min 14 kg/cm2",
+      printing: "Plain, unprinted",
+    },
+    quantity: 27000,
+    unit: "piece",
+    basePriceInr: 67.2,
+  },
+  {
+    position: 10,
+    skuCode: "CP-5R-010",
+    description: "5-ply RSC shipper, 650 x 450 x 350 mm",
+    specifications: {
+      ply: "5",
+      style: "RSC",
+      internalDimensionsMm: "650 x 450 x 350",
+      liner: "150 GSM / 20 BF kraft",
+      flute: "BC double wall",
+      burstingStrength: "Min 14 kg/cm2",
+      printing: "Plain, unprinted",
+    },
+    quantity: 24000,
+    unit: "piece",
+    basePriceInr: 71.5,
+  },
+  {
+    position: 11,
+    skuCode: "CP-5R-011",
+    description: "5-ply RSC heavy-duty shipper, 750 x 450 x 450 mm",
+    specifications: {
+      ply: "5",
+      style: "RSC",
+      internalDimensionsMm: "750 x 450 x 450",
+      liner: "180 GSM / 22 BF kraft",
+      flute: "BC double wall",
+      burstingStrength: "Min 16 kg/cm2",
+      printing: "Plain, unprinted",
+    },
+    quantity: 16500,
+    unit: "piece",
+    basePriceInr: 94.8,
+  },
+  {
+    position: 12,
+    skuCode: "CP-5R-012",
+    description: "5-ply RSC shipper, 800 x 500 x 400 mm",
+    specifications: {
+      ply: "5",
+      style: "RSC",
+      internalDimensionsMm: "800 x 500 x 400",
+      liner: "180 GSM / 22 BF kraft",
+      flute: "BC double wall",
+      burstingStrength: "Min 16 kg/cm2",
+      printing: "Plain, unprinted",
+    },
+    quantity: 13200,
+    unit: "piece",
+    basePriceInr: 108.6,
+  },
+  {
+    position: 13,
+    skuCode: "CP-5R-013",
+    description: "5-ply RSC shipper, 900 x 600 x 500 mm",
+    specifications: {
+      ply: "5",
+      style: "RSC",
+      internalDimensionsMm: "900 x 600 x 500",
+      liner: "180 GSM / 22 BF kraft",
+      flute: "BC double wall",
+      burstingStrength: "Min 16 kg/cm2",
+      printing: "Plain, unprinted",
+    },
+    quantity: 8400,
+    unit: "piece",
+    basePriceInr: 148.2,
+  },
+  {
+    position: 14,
+    skuCode: "CP-5P-014",
+    description: "5-ply RSC printed shipper, 600 x 400 x 300 mm, 3-colour",
+    specifications: {
+      ply: "5",
+      style: "RSC",
+      internalDimensionsMm: "600 x 400 x 300",
+      liner: "150 GSM / 20 BF white-top kraft",
+      flute: "BC double wall",
+      burstingStrength: "Min 14 kg/cm2",
+      printing: "3-colour flexo, brand artwork on 2 panels",
+    },
+    quantity: 21000,
+    unit: "piece",
+    basePriceInr: 66.9,
+  },
+  {
+    position: 15,
+    skuCode: "CP-5P-015",
+    description: "5-ply RSC printed shipper, 650 x 450 x 350 mm, 3-colour",
+    specifications: {
+      ply: "5",
+      style: "RSC",
+      internalDimensionsMm: "650 x 450 x 350",
+      liner: "150 GSM / 20 BF white-top kraft",
+      flute: "BC double wall",
+      burstingStrength: "Min 14 kg/cm2",
+      printing: "3-colour flexo, brand artwork on 2 panels",
+    },
+    quantity: 15000,
+    unit: "piece",
+    basePriceInr: 80.4,
+  },
+  {
+    position: 16,
+    skuCode: "CP-5H-016",
+    description: "5-ply HSC half-slotted container, 800 x 600 x 500 mm",
+    specifications: {
+      ply: "5",
+      style: "HSC (Half Slotted Container), open top",
+      internalDimensionsMm: "800 x 600 x 500",
+      liner: "180 GSM / 22 BF kraft",
+      flute: "BC double wall",
+      burstingStrength: "Min 16 kg/cm2",
+      printing: "Plain, unprinted",
+    },
+    quantity: 6600,
+    unit: "piece",
+    basePriceInr: 132.5,
+  },
+  {
+    position: 17,
+    skuCode: "CP-5T-017",
+    description: "5-ply telescopic lid and tray set, 700 x 500 x 400 mm",
+    specifications: {
+      ply: "5",
+      style: "Two-piece telescopic (lid + tray)",
+      internalDimensionsMm: "700 x 500 x 400",
+      liner: "180 GSM / 22 BF kraft",
+      flute: "BC double wall",
+      burstingStrength: "Min 16 kg/cm2",
+      printing: "Plain, unprinted",
+      note: "Rate is for the complete lid-and-tray set",
+    },
+    quantity: 5400,
+    unit: "set",
+    basePriceInr: 118.7,
+  },
+  {
+    position: 18,
+    skuCode: "CP-7R-018",
+    description: "7-ply RSC export shipper, 800 x 600 x 600 mm",
+    specifications: {
+      ply: "7",
+      style: "RSC",
+      internalDimensionsMm: "800 x 600 x 600",
+      liner: "200 GSM / 24 BF kraft",
+      flute: "BCA triple wall",
+      burstingStrength: "Min 22 kg/cm2",
+      printing: "Plain with export markings",
+      compliance: "ISPM-15 exempt (fibreboard); suitable for sea freight",
+    },
+    quantity: 4200,
+    unit: "piece",
+    basePriceInr: 206.4,
+  },
+  {
+    position: 19,
+    skuCode: "CP-7R-019",
+    description: "7-ply RSC export shipper, 1000 x 700 x 700 mm",
+    specifications: {
+      ply: "7",
+      style: "RSC",
+      internalDimensionsMm: "1000 x 700 x 700",
+      liner: "200 GSM / 24 BF kraft",
+      flute: "BCA triple wall",
+      burstingStrength: "Min 22 kg/cm2",
+      printing: "Plain with export markings",
+      compliance: "Suitable for sea freight",
+    },
+    quantity: 2400,
+    unit: "piece",
+    basePriceInr: 312.8,
+  },
+  {
+    position: 20,
+    skuCode: "CP-PAD-020",
+    description: "3-ply corrugated layer pad, 600 x 400 mm",
+    specifications: {
+      ply: "3",
+      style: "Flat layer pad",
+      dimensionsMm: "600 x 400",
+      liner: "120 GSM / 16 BF kraft",
+      flute: "B",
+      printing: "Plain",
+      supplyForm: "Supplied in bundles of 100",
+    },
+    quantity: 240000,
+    unit: "piece",
+    basePriceInr: 6.2,
+  },
+  {
+    position: 21,
+    skuCode: "CP-PAD-021",
+    description: "3-ply corrugated layer pad, 800 x 600 mm",
+    specifications: {
+      ply: "3",
+      style: "Flat layer pad",
+      dimensionsMm: "800 x 600",
+      liner: "140 GSM / 18 BF kraft",
+      flute: "B",
+      printing: "Plain",
+      supplyForm: "Supplied in bundles of 50",
+    },
+    quantity: 132000,
+    unit: "piece",
+    basePriceInr: 11.4,
+  },
+  {
+    position: 22,
+    skuCode: "CP-PAD-022",
+    description: "5-ply corrugated layer pad, 1200 x 800 mm",
+    specifications: {
+      ply: "5",
+      style: "Flat layer pad, pallet-sized",
+      dimensionsMm: "1200 x 800",
+      liner: "150 GSM / 20 BF kraft",
+      flute: "BC double wall",
+      printing: "Plain",
+      supplyForm: "Supplied in bundles of 25",
+    },
+    quantity: 48000,
+    unit: "piece",
+    basePriceInr: 27.6,
+  },
+  {
+    position: 23,
+    skuCode: "CP-DIV-023",
+    description: "Corrugated partition set, 4-cell, for 600 x 400 x 300 mm shipper",
+    specifications: {
+      ply: "3",
+      style: "Slotted cross partition, 4 cells",
+      dimensionsMm: "600 x 400 x 300",
+      fitsShipper: "CP-5R-008",
+      liner: "120 GSM / 16 BF kraft",
+      flute: "B",
+      note: "Rate is per complete partition set",
+    },
+    quantity: 66000,
+    unit: "set",
+    basePriceInr: 18.9,
+  },
+  {
+    position: 24,
+    skuCode: "CP-DIV-024",
+    description: "Corrugated partition set, 6-cell, for 600 x 400 x 400 mm shipper",
+    specifications: {
+      ply: "3",
+      style: "Slotted cross partition, 6 cells",
+      dimensionsMm: "600 x 400 x 400",
+      fitsShipper: "CP-5R-009",
+      liner: "120 GSM / 16 BF kraft",
+      flute: "B",
+      note: "Rate is per complete partition set",
+    },
+    quantity: 45000,
+    unit: "set",
+    basePriceInr: 24.3,
+  },
+  {
+    position: 25,
+    skuCode: "CP-SLV-025",
+    description: "5-ply corrugated wrap-around sleeve, 500 x 350 mm blank",
+    specifications: {
+      ply: "5",
+      style: "Wrap-around sleeve, scored for 4 folds",
+      blankSizeMm: "500 x 350",
+      liner: "150 GSM / 20 BF kraft",
+      flute: "BC double wall",
+      printing: "Plain",
+    },
+    quantity: 60000,
+    unit: "piece",
+    basePriceInr: 21.7,
+  },
+  {
+    position: 26,
+    skuCode: "CP-TRY-026",
+    description: "3-ply corrugated display tray, 400 x 300 x 100 mm",
+    specifications: {
+      ply: "3",
+      style: "Die-cut open display tray, glued corners",
+      internalDimensionsMm: "400 x 300 x 100",
+      liner: "140 GSM / 18 BF white-top kraft",
+      flute: "B",
+      printing: "1-colour flexo",
+    },
+    quantity: 78000,
+    unit: "piece",
+    basePriceInr: 15.3,
+  },
+  {
+    position: 27,
+    skuCode: "CP-TRY-027",
+    description: "5-ply heavy-duty tray, 600 x 400 x 150 mm",
+    specifications: {
+      ply: "5",
+      style: "Die-cut open tray, stitched corners",
+      internalDimensionsMm: "600 x 400 x 150",
+      liner: "150 GSM / 20 BF kraft",
+      flute: "BC double wall",
+      burstingStrength: "Min 14 kg/cm2",
+      printing: "Plain",
+    },
+    quantity: 33000,
+    unit: "piece",
+    basePriceInr: 34.8,
+  },
+  {
+    position: 28,
+    skuCode: "CP-ANG-028",
+    description: "Corrugated edge protector angle board, 50 x 50 x 1200 mm",
+    specifications: {
+      style: "L-profile angle board",
+      dimensionsMm: "50 x 50 x 1200",
+      thicknessMm: "4",
+      material: "Laminated recycled board",
+      supplyForm: "Supplied in bundles of 25",
+    },
+    quantity: 144000,
+    unit: "piece",
+    basePriceInr: 7.9,
+  },
+  {
+    position: 29,
+    skuCode: "CP-CRN-029",
+    description: "5-ply corrugated corner pad, 200 x 200 mm",
+    specifications: {
+      ply: "5",
+      style: "Flat corner protection pad",
+      dimensionsMm: "200 x 200",
+      liner: "150 GSM / 20 BF kraft",
+      flute: "BC double wall",
+      supplyForm: "Supplied in bundles of 200",
+    },
+    quantity: 216000,
+    unit: "piece",
+    basePriceInr: 4.6,
+  },
+  {
+    position: 30,
+    skuCode: "CP-WRP-030",
+    description: "2-ply corrugated wrapping roll, 1200 mm wide x 75 m",
+    specifications: {
+      ply: "2",
+      style: "Single-face corrugated roll",
+      widthMm: "1200",
+      lengthM: "75",
+      liner: "120 GSM / 16 BF kraft",
+      flute: "B",
+    },
+    quantity: 900,
+    unit: "roll",
+    basePriceInr: 1240.0,
+  },
+];

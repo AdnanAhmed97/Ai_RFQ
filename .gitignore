@@ -1,0 +1,43 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# next
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# production
+/build
+
+# environment — never commit real secrets
+.env
+.env.local
+.env.*.local
+
+# supabase local state
+/supabase/.branches
+/supabase/.temp
+
+# runtime artifacts
+/storage/
+/tmp/
+*.log
+npm-debug.log*
+
+# editor / os
+.DS_Store
+.vscode/
+.idea/
+
+# agent tooling (installed, not source)
+/.agents/
+/.claude/skills/
+/.cursor/
+/.gemini/
+
+# Aerchain's take-home brief is marked confidential on every page.
+# Excluded from the repository; it is not ours to publish.
+Aerchain-Product-Assignment*.pdf

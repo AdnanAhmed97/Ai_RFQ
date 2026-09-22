@@ -1,0 +1,285 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   RFx Intelligence — an instrument, not a dashboard
+
+   A buyer keeps this open for hours while deciding a ₹4 crore award. The data
+   is the interface. Structure comes from hairline rules, never from cards or
+   shadows — there are no shadows in this world. Colour is spent almost entirely
+   on the five confidence states, so a warning among 150 cells is findable
+   before it is read.
+--------------------------------------------------------------------------- */
+
+@theme {
+  /* Graphite. 960 is the ground the buyer stares into; 900 the working surface. */
+  --color-gr-960: oklch(0.186 0.006 250);
+  --color-gr-940: oklch(0.212 0.007 250);
+  --color-gr-920: oklch(0.236 0.008 250);
+  --color-gr-880: oklch(0.232 0.009 250);
+  --color-gr-840: oklch(0.268 0.010 250);
+  --color-gr-780: oklch(0.330 0.011 250);
+  --color-gr-700: oklch(0.410 0.012 250);
+  --color-gr-600: oklch(0.560 0.011 250);
+  --color-gr-500: oklch(0.640 0.010 250);
+  --color-gr-400: oklch(0.730 0.008 250);
+  --color-gr-300: oklch(0.775 0.006 250);
+  --color-gr-200: oklch(0.858 0.005 250);
+  --color-gr-100: oklch(0.928 0.004 250);
+
+  /* One accent. Position and primary action. Nothing else. */
+  --color-signal: oklch(0.745 0.135 218);
+  --color-signal-dim: oklch(0.560 0.105 218);
+  --color-signal-deep: oklch(0.320 0.070 218);
+
+  /* The confidence vocabulary. The only other colour in the product. */
+  --color-verified: oklch(0.760 0.145 156);
+  --color-inferred: oklch(0.800 0.130 88);
+  --color-review: oklch(0.775 0.150 58);
+  --color-blocked: oklch(0.560 0.012 250);
+  --color-conflict: oklch(0.680 0.185 24);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Every number, identifier and source reference is set in this. */
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+
+  --text-micro: 0.6875rem;
+  --text-micro--line-height: 1rem;
+  --text-2xs: 0.75rem;
+  --text-2xs--line-height: 1.125rem;
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.25rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.375rem;
+  --text-base: 0.9375rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.5rem;
+
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+
+  /* Fixed frame geometry. The rail and bars are structure, not content. */
+  --rail-w: 13rem;
+  --bar-h: 3rem;
+  --row-h: 2rem;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --ground: var(--color-gr-960);
+    --panel: var(--color-gr-940);
+    --raised: var(--color-gr-920);
+    --rule: oklch(0.262 0.009 250);
+    --rule-strong: oklch(0.330 0.011 250);
+    --ink: var(--color-gr-100);
+    --ink-2: var(--color-gr-300);
+    --ink-3: var(--color-gr-500);
+  }
+
+  * {
+    border-color: var(--rule);
+    min-width: 0;
+  }
+
+  html {
+    /* Prices must align down a column. Non-negotiable in this product. */
+    font-variant-numeric: tabular-nums;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* The surfaces we did not draw still belong to the design. */
+  ::selection {
+    background: var(--color-signal-deep);
+    color: var(--color-gr-100);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-signal);
+    outline-offset: 1px;
+    border-radius: var(--radius-xs);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--ground);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gr-840);
+    border: 2px solid var(--ground);
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gr-780);
+  }
+  ::-webkit-scrollbar-corner {
+    background: var(--ground);
+  }
+
+  * {
+    scrollbar-color: var(--color-gr-840) var(--ground);
+    scrollbar-width: thin;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  input::placeholder {
+    /* Tinted from the ground, not gray — stays ≥4.5:1 against the panel. */
+    color: var(--color-gr-600);
+  }
+
+  a {
+    color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(0.7);
+  }
+}
+
+@layer components {
+  /* --- Frame ------------------------------------------------------------ */
+
+  .rail {
+    background: var(--color-gr-940);
+    border-right: 1px solid var(--rule);
+  }
+
+  .bar {
+    height: var(--bar-h);
+    border-bottom: 1px solid var(--rule);
+    background: color-mix(in oklch, var(--ground) 88%, transparent);
+    backdrop-filter: blur(12px);
+  }
+
+  /* --- Labels ----------------------------------------------------------- */
+
+  /* Sentence case, not tracked capitals. Uppercase at this size reads as
+     shouting and costs legibility for nothing. */
+  .label {
+    font-size: var(--text-2xs);
+    line-height: var(--text-2xs--line-height);
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+
+  /* Numbers and identifiers only. Filenames, descriptions and source text are
+     prose and belong in the sans face — monospace everywhere reads as texture
+     and is markedly harder to scan. */
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.015em;
+    white-space: nowrap;
+  }
+
+  /* --- Dense table ------------------------------------------------------ */
+
+  .grid-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
+  }
+
+  .grid-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--color-gr-920);
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 0.5rem 0.875rem;
+    text-align: left;
+    font-size: var(--text-2xs);
+    color: var(--ink-3);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .grid-table tbody td {
+    /* Room to breathe. The previous 6px made 30 lines legible only in theory. */
+    padding: 0.625rem 0.875rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: baseline;
+  }
+
+  /* The evidence column carries two stacked lines and must stay narrow. */
+  .grid-table td .num {
+    white-space: nowrap;
+  }
+
+  .grid-table tbody tr {
+    transition: background-color 90ms linear;
+  }
+
+  .grid-table tbody tr:hover {
+    background: var(--color-gr-920);
+  }
+
+  .grid-table tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  /* --- Confidence ------------------------------------------------------- */
+
+  .state {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: var(--text-2xs);
+    line-height: 1.125rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .state::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    flex: none;
+  }
+
+  .state-verified { color: var(--color-verified); }
+  .state-inferred { color: var(--color-inferred); }
+  .state-review { color: var(--color-review); }
+  .state-blocked { color: var(--color-blocked); }
+  .state-conflict { color: var(--color-conflict); }
+  .state-neutral { color: var(--ink-3); }
+  .state-signal { color: var(--color-signal); }
+}
+
+@layer utilities {
+  .rule-t { border-top: 1px solid var(--rule); }
+  .rule-b { border-bottom: 1px solid var(--rule); }
+  .rule-r { border-right: 1px solid var(--rule); }
+  .rule-l { border-left: 1px solid var(--rule); }
+  .ink-2 { color: var(--ink-2); }
+  .ink-3 { color: var(--ink-3); }
+  .panel { background: var(--panel); }
+  .raised { background: var(--raised); }
+}
