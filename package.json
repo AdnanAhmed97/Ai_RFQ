@@ -19,7 +19,8 @@
     "db:migrate": "tsx --env-file-if-exists=.env.local scripts/migrate.ts",
     "db:reset": "tsx --env-file-if-exists=.env.local scripts/migrate.ts --reset",
     "db:seed": "tsx --env-file-if-exists=.env.local scripts/seed.ts",
-    "db:test-setup": "tsx --env-file-if-exists=.env.local scripts/setup-test-db.ts"
+    "db:test-setup": "tsx --env-file-if-exists=.env.local scripts/setup-test-db.ts",
+    "provision": "tsx --env-file-if-exists=.env.local scripts/provision.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.127.0",

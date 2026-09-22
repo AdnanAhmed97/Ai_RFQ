@@ -1,17 +1,15 @@
-import { readFile } from "node:fs/promises";
-import path from "node:path";
 import { NextResponse } from "next/server";
 import { getSql, isSqlConfigured } from "@/lib/db/sql";
-import { fixturesRoot } from "@/lib/documents/ingest";
+import { DocumentNotFoundError, readDocument } from "@/lib/storage/documents";
 
 export const runtime = "nodejs";
 
 /**
  * Serves a stored vendor document for viewing.
  *
- * The path is resolved from the database row, never from the request, and the
- * result is confined to the fixtures root — a storage path is data, and data
- * that reaches the filesystem has to be constrained.
+ * The path comes from the database row, never from the request, and the storage
+ * layer confines it — a storage path is data, and data that reaches a
+ * filesystem has to be constrained.
  */
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -25,14 +23,8 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
   `;
   if (!document) return NextResponse.json({ error: "Not found." }, { status: 404 });
 
-  const root = fixturesRoot();
-  const resolved = path.resolve(root, document.storage_path);
-  if (!resolved.startsWith(root + path.sep)) {
-    return NextResponse.json({ error: "Not found." }, { status: 404 });
-  }
-
   try {
-    const body = await readFile(resolved);
+    const body = await readDocument(document.storage_path);
     return new NextResponse(new Uint8Array(body), {
       headers: {
         "content-type": document.mime_type,
@@ -40,7 +32,10 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
         "cache-control": "private, max-age=300",
       },
     });
-  } catch {
-    return NextResponse.json({ error: "File missing on disk." }, { status: 404 });
+  } catch (error) {
+    if (error instanceof DocumentNotFoundError) {
+      return NextResponse.json({ error: "Document is not in storage." }, { status: 404 });
+    }
+    throw error;
   }
 }

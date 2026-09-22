@@ -1,9 +1,12 @@
 import "server-only";
+import { mkdtemp, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import path from "node:path";
 import type { AIAttachment } from "@/lib/ai/provider";
 import type { DocumentKind } from "@/types";
+import { readDocument, fixturesRoot } from "@/lib/storage/documents";
 import { classifyByFilename, imageMediaType, STRATEGY_BY_KIND } from "./classify";
-import { parseDocx, parseText, parseXlsx, readBase64, type ParsedDocument } from "./parse";
+import { parseDocx, parseText, parseXlsx, type ParsedDocument } from "./parse";
 
 /**
  * Turns a stored document into something the model can read, once.
@@ -22,10 +25,7 @@ export interface IngestedDocument {
   parsed?: ParsedDocument;
 }
 
-/** Where fixture documents live, relative to the repository root. */
-export function fixturesRoot(): string {
-  return path.resolve(process.cwd(), "fixtures");
-}
+export { fixturesRoot };
 
 export async function ingestDocument(params: {
   documentId: string;
@@ -33,7 +33,8 @@ export async function ingestDocument(params: {
   storagePath: string;
   kind?: DocumentKind;
 }): Promise<IngestedDocument> {
-  const absolutePath = path.join(fixturesRoot(), params.storagePath);
+  // One read, whichever backend holds the file.
+  const bytes = await readDocument(params.storagePath);
   const classification = classifyByFilename(params.filename);
   const kind = params.kind ?? classification.kind;
   const strategy = STRATEGY_BY_KIND[kind];
@@ -50,7 +51,7 @@ export async function ingestDocument(params: {
         attachment: {
           kind: "pdf",
           filename: params.filename,
-          base64: await readBase64(absolutePath),
+          base64: bytes.toString("base64"),
         },
       };
     }
@@ -64,18 +65,25 @@ export async function ingestDocument(params: {
           kind: "image",
           filename: params.filename,
           mediaType: imageMediaType(classification.mimeType),
-          base64: await readBase64(absolutePath),
+          base64: bytes.toString("base64"),
         },
       };
     }
 
     case "STRUCTURED_TEXT": {
+      // The spreadsheet and Word parsers read from a path, so bytes fetched
+      // from object storage are staged to a temporary file first.
+      const staged = path.join(
+        await mkdtemp(path.join(tmpdir(), "rfx-")),
+        path.basename(params.filename),
+      );
+      await writeFile(staged, bytes);
       const parsed =
         kind === "XLSX"
-          ? await parseXlsx(absolutePath)
+          ? await parseXlsx(staged)
           : kind === "DOCX"
-            ? await parseDocx(absolutePath)
-            : await parseText(absolutePath);
+            ? await parseDocx(staged)
+            : await parseText(staged);
 
       return {
         documentId: params.documentId,

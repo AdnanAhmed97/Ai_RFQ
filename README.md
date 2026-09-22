@@ -343,6 +343,61 @@ ever hardcoded in source.
 
 ---
 
+## Deploying
+
+Three things are needed: a Postgres database, a storage bucket, and a session
+secret. Supabase supplies the first two.
+
+**1. Create a Supabase project**, then from Project Settings collect:
+
+| Setting | Where | Goes in |
+|---|---|---|
+| Connection string (URI) | Database → Connection string | `DATABASE_URL` |
+| Project URL | API | `SUPABASE_URL` |
+| `service_role` key | API → Project API keys | `SUPABASE_SERVICE_ROLE_KEY` |
+
+Use the **pooled** connection string for a serverless deployment; a direct
+connection exhausts Postgres under lambda concurrency.
+
+**2. Generate a session secret:**
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+**3. Provision everything with one command:**
+
+```bash
+npm run provision
+```
+
+That applies the migrations, creates a **private** storage bucket, uploads the
+twelve fixture documents, and seeds the demo RFx. Every step is idempotent, and
+it refuses to reseed over extracted data — re-running on a live instance will
+not destroy a run that took fifteen minutes of model calls to produce. Pass
+`--force` when you do want it rebuilt.
+
+**4. Set the same variables in your host**, then deploy:
+
+```
+DATABASE_URL, SESSION_SECRET, SUPABASE_URL,
+SUPABASE_SERVICE_ROLE_KEY, SUPABASE_STORAGE_BUCKET
+```
+
+No Anthropic key is set on the server. The product is BYOK: each user supplies
+their own on `/login`, and it is held in that process's memory for the session
+only.
+
+### Storage
+
+Documents are read through one interface with two backends. Supabase Storage
+when it is configured — which a deployed instance needs, since a serverless
+filesystem holds nothing a user uploaded. The repository's own `fixtures/`
+directory otherwise, so a fresh clone runs with no cloud account at all.
+
+The bucket is private. Supplier pricing is commercially sensitive, and documents
+are served through the app rather than by public URL.
+
 ## Build plan
 
 | Slice | Scope | Status |
