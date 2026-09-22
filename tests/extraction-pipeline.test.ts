@@ -115,7 +115,6 @@ describeDb("extraction pipeline", () => {
 
   it("walks a job through every stage in order, with no jumps", async () => {
     const context = await loadRfxContext(rfqId);
-    const lineId = context.lines[0]!.id;
 
     const provider = new FakeProvider({
       byOperation: {
@@ -255,7 +254,6 @@ describeDb("extraction pipeline", () => {
   });
 
   it("skips the matching call entirely when specification settles every line", async () => {
-    const context = await loadRfxContext(rfqId);
     const provider = new FakeProvider({
       byOperation: {
         extract_document: {
@@ -290,7 +288,6 @@ describeDb("extraction pipeline", () => {
 
     // No match_lines call: a slow round-trip avoided on a question code answered.
     expect(provider.calls.map((c) => c.operation)).toEqual(["extract_document"]);
-    void context;
   });
 
   it("marks the supplier PARTIAL when one of their documents failed", async () => {
