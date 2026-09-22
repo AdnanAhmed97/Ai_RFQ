@@ -12,7 +12,11 @@ export function testDatabaseUrl(): string | null {
   const configured = process.env.TEST_DATABASE_URL;
   if (configured) return configured;
 
-  const base = process.env.DATABASE_URL;
+  // Never derive a test database from a hosted one. Appending _test to a
+  // Supabase connection points at a database that does not exist, and the
+  // suite then skips silently — losing 20 tests without anyone noticing.
+  const base = process.env.DIRECT_DATABASE_URL || process.env.DATABASE_URL;
+  if (base && /supabase|neon\.tech|rds\.amazonaws/.test(base)) return null;
   if (!base) return null;
 
   try {
