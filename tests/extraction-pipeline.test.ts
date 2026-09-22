@@ -82,6 +82,24 @@ describeDb("extraction pipeline", () => {
           evidence: { page: null, sheet: "Quotation", row: 30, column: "F", sourceText: "620.00" },
           concern: "Quoted per bundle; no bundle quantity printed anywhere on the sheet.",
         },
+        {
+          // No dimensions in the wording, so specification cannot settle it and
+          // the model is still asked — keeping the matching call covered.
+          rawDescription: "Angle Board, laminated recycled",
+          quotedPrice: 7.9,
+          currency: "INR" as const,
+          quotedUnit: "per piece",
+          quantityBasis: null,
+          quantityBasisUnit: null,
+          freight: { status: "INCLUDED" as const, amount: null, currency: null, basis: null },
+          taxesIncluded: null,
+          taxRate: null,
+          leadTimeDays: null,
+          moq: null,
+          confidence: "VERIFIED" as const,
+          evidence: { page: null, sheet: "Quotation", row: 40, column: "F", sourceText: "7.90" },
+          concern: null,
+        },
       ],
       questionnaireAnswers: [
         {
@@ -102,22 +120,15 @@ describeDb("extraction pipeline", () => {
     const provider = new FakeProvider({
       byOperation: {
         extract_document: extractionFor("Q1"),
+        // Only the line specification could not settle reaches the model.
         match_lines: {
           matches: [
             {
-              vendorLineIndex: 0,
+              vendorLineIndex: 2,
               status: "MATCHED",
-              rfqLineId: lineId,
-              score: 0.97,
-              reasoning: "5-ply and 5 layer describe the same construction.",
-              candidates: [],
-            },
-            {
-              vendorLineIndex: 1,
-              status: "MATCHED",
-              rfqLineId: context.lines[19]!.id,
-              score: 0.93,
-              reasoning: "Layer pad, matching dimensions.",
+              rfqLineId: context.lines[27]!.id,
+              score: 0.9,
+              reasoning: "Angle board, the only edge protector on the RFx.",
               candidates: [],
             },
           ],
@@ -142,7 +153,9 @@ describeDb("extraction pipeline", () => {
       "NEEDS_REVIEW",
     ]);
 
-    // Both model calls happened, in order, against the real schemas.
+    // Extraction always runs; matching only for what specification could not
+    // settle. Two of the three lines carry ply and dimensions, so they were
+    // resolved in code and never reached the model.
     expect(provider.calls.map((c) => c.operation)).toEqual(["extract_document", "match_lines"]);
   });
 
@@ -150,7 +163,8 @@ describeDb("extraction pipeline", () => {
     const quotes = await sql<
       { id: string; quoted_price: number; quoted_unit: string; confidence: string; rfq_line_id: string | null }[]
     >`select id, quoted_price, quoted_unit, confidence::text as confidence, rfq_line_id from vendor_quotes`;
-    expect(quotes).toHaveLength(2);
+    // Three quoted lines: two settled by specification, one by the model.
+    expect(quotes).toHaveLength(3);
 
     const perPiece = quotes.find((q) => q.quoted_unit === "per piece")!;
     expect(Number(perPiece.quoted_price)).toBeCloseTo(12.64, 2);
@@ -194,8 +208,8 @@ describeDb("extraction pipeline", () => {
     const [missing] = await sql<{ count: number }[]>`
       select count(*)::int from commercial_issues where category = 'MISSING_LINE'
     `;
-    // 30 RFx lines, 2 quoted by this one document.
-    expect(missing!.count).toBe(28);
+    // 30 RFx lines, 3 quoted by this one document.
+    expect(missing!.count).toBe(27);
   });
 
   it("sets coverage only from what was actually extracted", async () => {
@@ -206,7 +220,7 @@ describeDb("extraction pipeline", () => {
     `;
     const processed = rows.filter((r) => r.quoted_line_count !== null);
     expect(processed).toHaveLength(1);
-    expect(processed[0]!.quoted_line_count).toBe(2);
+    expect(processed[0]!.quoted_line_count).toBe(3);
     // Suppliers whose documents have not been read report nothing, not zero.
     expect(rows.filter((r) => r.quoted_line_count === null)).toHaveLength(4);
   });
@@ -238,6 +252,45 @@ describeDb("extraction pipeline", () => {
 
     const events = await listEvents(job!.id);
     expect(events.at(-1)!.toState).toBe("FAILED");
+  });
+
+  it("skips the matching call entirely when specification settles every line", async () => {
+    const context = await loadRfxContext(rfqId);
+    const provider = new FakeProvider({
+      byOperation: {
+        extract_document: {
+          documentSummary: "A quotation whose lines all carry ply and dimensions.",
+          quotes: [
+            {
+              rawDescription: "Corrugated Box 3Ply - 305x230x160 (B Flute)",
+              quotedPrice: 11.75,
+              currency: "INR" as const,
+              quotedUnit: "per piece",
+              quantityBasis: null,
+              quantityBasisUnit: null,
+              freight: { status: "INCLUDED" as const, amount: null, currency: null, basis: null },
+              taxesIncluded: null,
+              taxRate: null,
+              leadTimeDays: null,
+              moq: null,
+              confidence: "VERIFIED" as const,
+              evidence: { page: 1, sheet: null, row: 1, column: null, sourceText: "11.75" },
+              concern: null,
+            },
+          ],
+          questionnaireAnswers: [],
+          issues: [],
+        },
+      },
+    });
+
+    const job = await claim("test-runner-prematch");
+    expect(job).not.toBeNull();
+    await runJob(job!, provider);
+
+    // No match_lines call: a slow round-trip avoided on a question code answered.
+    expect(provider.calls.map((c) => c.operation)).toEqual(["extract_document"]);
+    void context;
   });
 
   it("marks the supplier PARTIAL when one of their documents failed", async () => {
