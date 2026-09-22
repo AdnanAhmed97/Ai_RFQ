@@ -63,7 +63,10 @@ A line the supplier did not quote is simply absent. Do not emit a row for it.`;
     operation: "extract_document",
     system,
     cacheSystem: true,
-    effort: "high",
+    // A transcribed spreadsheet is a reading task; a skewed scan or a
+    // photographed card is a genuinely hard one. Spending the same thinking
+    // budget on both pays scan latency on every document.
+    effort: document.parsed ? "low" : "high",
     maxTokens: 32_000,
     schema: DocumentExtractionSchema,
     schemaName: "document_extraction",

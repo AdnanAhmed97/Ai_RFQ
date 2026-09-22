@@ -135,7 +135,12 @@ export async function runJob(
     });
 
     // --- Validate ----------------------------------------------------------
-    await transition(job.id, "VALIDATING");
+    await transition(job.id, "VALIDATING", {
+      note:
+        matched.prematchedCount > 0
+          ? `${matched.prematchedCount} lines matched on specification without a model call`
+          : undefined,
+    });
 
     const validation = validateExtraction({
       context,

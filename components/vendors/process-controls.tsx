@@ -25,22 +25,53 @@ export function ProcessControls({
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState(0);
 
+  /**
+   * Documents are independent, so they are read concurrently.
+   *
+   * Each request claims a different job — the queue uses SELECT ... FOR UPDATE
+   * SKIP LOCKED, so two lanes never take the same document — and on a
+   * serverless host the lanes land on separate instances, which is the whole
+   * point. Four at a time: enough to turn fifteen minutes into two, below the
+   * rate limit a personal key carries.
+   */
+  const LANES = 4;
+
   async function run() {
     setRunning(true);
     setError(null);
     setDone(0);
-    try {
-      for (let i = 0; i < queued + 2; i++) {
+
+    let exhausted = false;
+    let failure: string | null = null;
+
+    async function lane() {
+      while (!exhausted && !failure) {
         const response = await fetch(`/api/rfx/${rfqId}/process`, { method: "POST" });
-        const body = (await response.json()) as { error?: string; done?: boolean };
+        const body = (await response.json()) as {
+          error?: string;
+          done?: boolean;
+          outcome?: string | null;
+        };
+
         if (!response.ok) {
-          setError(body.error ?? "Processing failed.");
-          break;
+          failure = body.error ?? "Processing failed.";
+          return;
         }
+        // No job was waiting: the queue is drained, stop every lane.
+        if (body.outcome === null) {
+          exhausted = true;
+          return;
+        }
+
         setDone((n) => n + 1);
         router.refresh();
-        if (body.done) break;
+        if (body.done) exhausted = true;
       }
+    }
+
+    try {
+      await Promise.all(Array.from({ length: Math.min(LANES, queued) }, lane));
+      if (failure) setError(failure);
     } catch {
       setError("Could not reach the server.");
     } finally {
@@ -96,7 +127,7 @@ export function ProcessControls({
           <RotateCcw className="size-3" aria-hidden />
         )}
         {running
-          ? `Processing · ${done}`
+          ? `Reading · ${done}/${queued}`
           : primary
             ? `Process ${queued}`
             : `Re-queue ${failed} failed`}
